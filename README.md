@@ -139,6 +139,7 @@ El modelo de la base de datos deberá tener las siguientes entidades (Aquellas p
   - Altura *
   - Peso *
   - Años de vida
+  - Foto
 - [ ] Temperamento con las siguientes propiedades:
   - ID
   - Nombre
