@@ -1,6 +1,9 @@
 const { Router } = require("express");
 const axios = require("axios");
 const { Dog, Temperament } = require("../db");
+const db = require("../db");
+const { get } = require("superagent");
+const { noData, NoticeMessage } = require("pg-protocol/dist/messages");
 const { API_KEY } = process.env;
 
 // Importar todos los routers;
@@ -41,7 +44,7 @@ const getDbInfo = async () => {
       through: {
         attributes: [],
       },
-    },
+    }, 
   });
 };
 
@@ -51,6 +54,8 @@ const getAllBreeds = async () => {
   const dogTotalInformation = breedsInformation.concat(dbInformation);
   return dogTotalInformation;
 };
+
+
 
 router.get("/dogs", async (req, res) => {
   const name = req.query.name;
@@ -65,113 +70,145 @@ router.get("/dogs", async (req, res) => {
   } else {
     res.status(200).send(totalBreeds);
   }
-});
+});          
 
-// A TRABAJAR. ESTO ES LO DE TEMPERAMENTS QUE ES TODO UNA STRING DE MIERDA
 
-// router.get("/temperaments", async (req, res) => {
-//     const temperamentsApi = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
-//     const temperaments = temperamentsApi.data.map( el => el.temperament)
-//     const tempEach = temperaments.map(el => {
-//         for (let i = 0; i < el.length; i++) return el[i]})
-//         console.log(tempEach)
-//     tempEach.forEach(el => {
-//         Temperament.findOrCreate({
-//             where: { temperament: el }
-//         })
-//     })
+router.get('/dogs/:id', async(req, res) => {  
+  const id = req.params.id
+  if(id){
+          const totalDogs = await getAllBreeds()
+          let dogId = await totalDogs.filter(e => e.id == id)
+          console.log(dogId)
+          dogId.length ? res.status(200).send(dogId) : res.status(404).send("Perro no encontrado")
+  }
+})
 
-//     const allTemperaments = await Temperament.findAll()
-//     res.send(allTemperaments)
-// })
 
-// router.get("/temperaments", async (req, res) => {
-//     const temperamentsApi = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
-//     const temperaments = temperamentsApi.data.join.split(',').sort( el => el.temperament )
-//     const temperamentsEach = temperaments.sort(el => el)
-//     console.log(temperamentsEach)
-//     temperamentsEach.sort( el => {
-//         if(el !== '') {
-//         Temperament.findOrCreate({
-//         where: { name: el }
-//      })
-//    }
-// })
-//     const allTemperaments = await Temperament.findAll()
-//     res.send(allTemperaments)
-// })
-
-// AYUDA DE STACK OVERFLOW
-
-// router.get("/temperaments", async (req, res) => {
-//   let result = []
-//   const temperamentsApi = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
-//   const temperaments = temperamentsApi.data.forEach( el => el.temperament)
-//   const tempEach = temperaments.forEach(datum=>{
-//     result.push(datum.temperaments);
-// });
-// console.log(result);
-//   tempEach.forEach(el => {
-//       Temperament.findOrCreate({
-//           where: { temperament: el }
-//       })
-//   })
-
-//   const allTemperaments = await Temperament.findAll()
-//   res.send(allTemperaments)
-// })
-
-//AYUDA v2
-
-router.get("/temperaments", async (req, res) => {
-  dogsApi = await getAllBreeds();
+router.get("/temperament", async (req, res) => {
+  dogsApi = await getAllBreeds(); 
   const dogsDb = dogsApi
-    .map((el) => el.temperament)
-    .join()
-    .split(",");
+  .map((el) => el.temperament)
+  .join()
+  .split(",");
   const dogsDbTrim = dogsDb.map((el) => el.trim());
+
 
   dogsDbTrim.forEach((el) => {
     if (el !== "") {
-      Temperament.findOrCreate({
+      Temperament.findOrCreate({ 
         where: {
           temperament: el,
         },
-      });
-    }
+      });  
+    } 
   });
-  res.send("Temperamento creado")
-
+  const allTemperaments = await Temperament.findAll()
+  res.send(allTemperaments)
+  
 });
 
-// POST DE TEMPERAMENTS
 
-// router.post("/dogs", async (req, res) => {
-//     let {
-//         name,
-//         height,
-//         weight,
-//         lifeSpan,
-//         temperament,
-//         image,
-//         createdInDb,
-//     } = req.body
+  router.post('/dog', async (req, res) => {
+    let {
+        id,
+        name,
+        minHeight,
+        maxHeight,
+        minWeight,
+        maxWeight,
+        lifeSpan,
+        image,
+        temperaments,
+        created
+    } = req.body
 
-//     let dogCreated = await Dog.create ({
-//         name,
-//         height,
-//         weight,
-//         lifeSpan,
-//         temperament,
-//         image,
-//         createdInDb
-//     })
+    if(!name || !minHeight || !maxHeight || !minWeight ||!maxWeight ){
+        res.status(404).send("Por favor completar los campos obligatorios")
+    }
+    try{
+        let height = minHeight + " - " + maxHeight
+        let weight = minWeight + " - " + maxWeight
 
-//     let temperamentDb = await Temperament.findAll({
-//         where: { temperament : temperament }
-//     })
-//     dogCreated.addTemperament(temperamentDb)
-//     res.send("Perrito creado con exito")
-// })
+        let createDog = await Dog.create({
+            name,
+            height,
+            weight,
+            lifeSpan,
+            image,
+            created
+        })
+        let temperamentDB = await Temperament.findAll({
+            where: {
+                temperament : temperaments
+            }
+        })
+        createDog.addTemperament(temperamentDB)
+        res.status(200).send("Raza de pero creada exitosamente")
+    }catch(err){
+        console.log(err)
+    }
+})
 
+        
 module.exports = router;
+        
+
+
+
+
+        
+        // A TRABAJAR. ESTO ES LO DE TEMPERAMENTS QUE ES TODO UNA STRING DE MIERDA
+        
+        // router.get("/temperaments", async (req, res) => {
+        //     const temperamentsApi = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
+        //     const temperaments = temperamentsApi.data.map( el => el.temperament)
+        //     const tempEach = temperaments.map(el => {
+        //         for (let i = 0; i < el.length; i++) return el[i]})
+        //         console.log(tempEach)
+        //     tempEach.forEach(el => {
+        //         Temperament.findOrCreate({
+        //             where: { temperament: el }
+        //         })
+        //     })
+        
+        //     const allTemperaments = await Temperament.findAll()
+        //     res.send(allTemperaments)
+        // })
+        
+        // router.get("/temperaments", async (req, res) => {
+        //     const temperamentsApi = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
+        //     const temperaments = temperamentsApi.data.join.split(',').sort( el => el.temperament )
+        //     const temperamentsEach = temperaments.sort(el => el)
+        //     console.log(temperamentsEach)
+        //     temperamentsEach.sort( el => {
+        //         if(el !== '') {
+        //         Temperament.findOrCreate({
+        //         where: { name: el }
+        //      })
+        //    }
+        // })
+        //     const allTemperaments = await Temperament.findAll()
+        //     res.send(allTemperaments)
+        // })
+        
+        // AYUDA DE STACK OVERFLOW
+        
+        // router.get("/temperaments", async (req, res) => {
+        //   let result = []
+        //   const temperamentsApi = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
+        //   const temperaments = temperamentsApi.data.forEach( el => el.temperament)
+        //   const tempEach = temperaments.forEach(datum=>{
+        //     result.push(datum.temperaments);
+        // });
+        // console.log(result);
+        //   tempEach.forEach(el => {
+        //       Temperament.findOrCreate({
+        //           where: { temperament: el }
+        //       })
+        //   })
+        
+        //   const allTemperaments = await Temperament.findAll()
+        //   res.send(allTemperaments)
+        // })
+        
+        //AYUDA v2
