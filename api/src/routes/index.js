@@ -2,8 +2,6 @@ const { Router } = require("express");
 const axios = require("axios");
 const { Dog, Temperament } = require("../db");
 const db = require("../db");
-const { get } = require("superagent");
-const { noData, NoticeMessage } = require("pg-protocol/dist/messages");
 const { API_KEY } = process.env;
 
 // Importar todos los routers;
@@ -108,48 +106,22 @@ router.get("/temperament", async (req, res) => {
 });
 
 
-  router.post('/dog', async (req, res) => {
-    let {
-        id,
-        name,
-        minHeight,
-        maxHeight,
-        minWeight,
-        maxWeight,
-        lifeSpan,
-        image,
-        temperaments,
-        created
-    } = req.body
+router.post("/dog", async (req, res) => {
+  let {
+    dog,
+    temperament,
+  } = req.body
 
-    if(!name || !minHeight || !maxHeight || !minWeight ||!maxWeight ){
-        res.status(404).send("Por favor completar los campos obligatorios")
-    }
-    try{
-        let height = minHeight + " - " + maxHeight
-        let weight = minWeight + " - " + maxWeight
+  let dogCreated = await Dog.create(
+    dog
+  )
 
-        let createDog = await Dog.create({
-            name,
-            height,
-            weight,
-            lifeSpan,
-            image,
-            created
-        })
-        let temperamentDB = await Temperament.findAll({
-            where: {
-                temperament : temperaments
-            }
-        })
-        createDog.addTemperament(temperamentDB)
-        res.status(200).send("Raza de pero creada exitosamente")
-    }catch(err){
-        console.log(err)
-    }
+  let temperamentDb = await Temperament.findAll({ where: { temperament : temperament } })
+  dogCreated.addTemperament(temperamentDb)
+  
+  res.status(200).send("Perrito creado :D")
 })
 
-        
 module.exports = router;
         
 
