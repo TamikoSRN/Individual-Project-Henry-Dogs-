@@ -21,7 +21,7 @@ router.get("/dogs", async (req, res) => {
     );
     dogBreed.length
       ? res.status(200).send(dogBreed)
-      : res.status(404).send("404 Breed Not Found :(");
+      : res.status(404).send("404 Breed Not Found :("); 
   } else {
     res.status(200).send(totalBreeds);
   }
@@ -29,12 +29,12 @@ router.get("/dogs", async (req, res) => {
 
 
 router.get('/dogs/:id', async(req, res) => {  
-  const id = req.params.id
+  const {id} = req.params
   if(id){
           const totalDogs = await getAllBreeds()
           let dogId = await totalDogs.filter(e => e.id == id)
           console.log(dogId)
-          dogId.length ? res.status(200).send(dogId) : res.status(404).send("Perro no encontrado")
+          dogId.length ? res.status(200).send(dogId) : res.status(404).send("404 Breed Not Found :(")
   }
 })
 
