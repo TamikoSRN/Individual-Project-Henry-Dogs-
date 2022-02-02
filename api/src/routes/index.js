@@ -31,8 +31,8 @@ router.get("/dogs", async (req, res) => {
 router.get('/dogs/:id', async(req, res) => {  
   const {id} = req.params
   if(id){
-          const totalDogs = await getAllBreeds()
-          let dogId = await totalDogs.filter(e => e.id == id)
+          const totalBreeds = await getAllBreeds()
+          let dogId = await totalBreeds.filter(e => e.id == id)
           console.log(dogId)
           dogId.length ? res.status(200).send(dogId) : res.status(404).send("404 Breed Not Found :(")
   }
