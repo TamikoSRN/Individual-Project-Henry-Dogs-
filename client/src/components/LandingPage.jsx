@@ -1,16 +1,16 @@
 import React from "react";
 import "../components/LandingPage.css";
 import { Link } from "react-router-dom";
-import Background from "./img/korone.jpg"
 
-const LandingPage = () => {
+export default function LandingPage() {
   return (
     <>
-    <div id="background">
-        <img src={Background}  className="stretch" alt=""></img>
-    </div>
+      <div>
+        <h1>Welcome to my Dog's Wikia</h1>
+        <Link to={"/home"}>
+          <span className="enterButton">Enter</span>
+        </Link>
+      </div>
     </>
-  )
-};
-
-export default LandingPage;
+  );
+}
