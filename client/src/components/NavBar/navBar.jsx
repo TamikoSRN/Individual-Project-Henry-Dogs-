@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Korone from "../img/korone.png"
+import Korone from "../img/korone_preview_rev_3.png"
 import "./navBar.css"
 
 const Nav = ({ brand }) => {

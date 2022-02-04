@@ -1,65 +1,64 @@
 .card-container {
-    background-image: url("../img/paws.jpg");
-    background-position-y: 180px;
-    width: 300px;
-    overflow: hidden;
-    transition: 0.3s;
-    animation: ease-in;
-    box-shadow: 0px 0px 15px -5px;
-    margin: 5%;
+  background-image: url("../img/paws.jpg");
+  background-position-y: 180px;
+  width: 300px;
+  overflow: hidden;
+  transition: 0.3s;
+  animation: ease-in;
+  box-shadow: 0px 0px 15px -5px;
+  margin: 5%;
 }
 
-.card-container:hover{
-    transform: scale(1.1);
-    box-shadow: 0px 0px 15px -5px;
+.card-container:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 15px -5px;
 }
 
-.name{
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
-    text-align: center;
-    color: black;
-    font-weight: 200;
+.name {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  color: black;
+  font-weight: 200;
 }
 
-.image-container img{
-    overflow: hidden;
-    height: 200px;
+.image-container img {
+  overflow: hidden;
+  height: 200px;
 }
 
 .card-content {
-    margin: 1rem;
-    margin-top: 0.5rem;
+  margin: 1rem;
+  margin-top: 0.5rem;
 }
 
-.temperaments{
-    text-align: center;
-    color: black;
+.temperaments {
+  text-align: center;
+  color: black;
 }
 
 .heightAndWeight {
-    display: flex;
-    color: black;
+  display: flex;
+  color: black;
 }
 
-.btn{
-    display: flex;
-    justify-content: center;
-    padding: 0.5rem;
-    background-color: rgba(221, 221, 221, 0.836);
-    transition: 0.2s;
-    margin-bottom: 0.5rem;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    text-transform: uppercase;
-    color: #1b9cfc;
-    text-decoration: none;
-    font-weight: bold;
+.btn {
+  display: flex;
+  padding: 15px 30px;
+  transition: 0.4s;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #757474;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid rgb(136, 131, 131);
+  font-weight: 600;
+  letter-spacing: 2px;
+  border-radius: 6px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.btn:hover{
-    background: rgba(27, 156, 252, 0.1);
-    transform: scale();
+.btn:hover {
+    transition-delay: 0.1s;
+    color: rgb(19, 17, 17);
 }
-
