@@ -21,9 +21,7 @@ export default function Home() {
 
   return (
     <div>
-      <button onClick={e=> {handleClick(e)}}> Refrescar lista </button>
-
-
+      <button onClick={e=> {handleClick(e)}}> Refresh list </button>
             <select>
                 <option value = "asc"> A-Z </option>
                 <option value = "desc"> Z-A </option>
