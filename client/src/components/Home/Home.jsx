@@ -21,9 +21,9 @@ export default function Home() {
 
   return (
     <div>
-      {/* <button onClick={e=> {handleClick(e)}}> Refrescar lista </button> */}
+      <button onClick={e=> {handleClick(e)}}> Refrescar lista </button>
 
-      {/* <div>
+
             <select>
                 <option value = "asc"> A-Z </option>
                 <option value = "desc"> Z-A </option>
@@ -41,20 +41,19 @@ export default function Home() {
                 <option value="TallerBreeds">Taller breeds</option>
                 <option value="ShortestBreeds">Shortest breeds</option>
             </select>
-            </div> */}
+
 
       {allDogs?.map((e) => {
         return (
           <Fragment>
-              <Link to={"/home/" + e.id}>
               <Card
+                id={e.id}
                 name={e.name}
                 image={e.image}
                 temperament={e.temperament}
                 height={e.height}
                 weight={e.weight}
                 />
-                </Link>
           </Fragment>
         );
       })}
