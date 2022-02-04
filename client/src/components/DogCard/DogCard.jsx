@@ -17,7 +17,7 @@ export default function Card({ name, image, temperament, height, weight, id}) {
       <h5 className="heightAndWeight ">Weight: {weight} kg</h5>
       <Link to={"/home/" + id}>
         <button className="btn">
-          <a>Learn more!</a>
+          Learn more!
         </button>
         </Link>
       </div>
