@@ -1,7 +1,8 @@
+require("dotenv").config();
 const { Router } = require("express");
 const { Dog, Temperament } = require("../db");
-const db = require("../db");
-const { getAllBreeds  } = require("../controllers/dogs")
+const { getAllBreeds } = require("../controllers/dogs");
+const { getTemperament } = require("../controllers/temperament");
 
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
@@ -15,6 +16,7 @@ const router = Router();
 router.get("/dogs", async (req, res) => {
   const {name} = req.query;
   let totalBreeds = await getAllBreeds();
+
   if (name) {
     let dogBreed = await totalBreeds.filter((el) =>
       el.name.toLowerCase().includes(name.toLowerCase())
@@ -28,55 +30,46 @@ router.get("/dogs", async (req, res) => {
 });
 
 
-router.get('/dogs/:id', async(req, res) => {  
-  const {id} = req.params
-  if(id){
-          const totalBreeds = await getAllBreeds()
-          let dogId = await totalBreeds.filter(e => e.id == id)
-          console.log(dogId)
-          dogId.length ? res.status(200).send(dogId) : res.status(404).send("404 Breed Not Found :(")
+router.get("/dogs/:id", async (req, res) => {
+  const { id } = req.params;
+  if (id) {
+      const allBreeds = await getAllBreeds();
+      let dogId = await allBreeds.filter((e) => e.id == id);
+      dogId.length
+        ? res.status(200).send(dogId)
+        : res.status(404).send("Doggo Not Found");
   }
-})
+});
 
 
 router.get("/temperament", async (req, res) => {
-  dogsApi = await getAllBreeds(); 
-  const dogsDb = dogsApi
-  .map((el) => el.temperament)
-  .join()
-  .split(",");
-  const dogsDbTrim = dogsDb.map((el) => el.trim());
 
+  try {
+    const dogTemperaments = await getTemperament();
+    console.log(dogTemperaments);
 
-  dogsDbTrim.forEach((el) => {
-    if (el !== "") {
-      Temperament.findOrCreate({ 
-        where: {
-          temperament: el,
-        },
-      });  
-    } 
-  });
-  const allTemperaments = await Temperament.findAll()
-  res.send(allTemperaments)
-  
+    const allTemperaments = await Temperament.findAll();
+    const filteredTemperaments = await allTemperaments.map((e) => e.name);
+
+    res.status(200).send(filteredTemperaments);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 
 router.post("/dog", async (req, res) => {
-  let {
-    dog,
-    temperament,
-  } = req.body
+  let { dog, temperament } = req.body;
 
-  let dogCreated = await Dog.create(
-    dog
-  )
+  let dogCreated = await Dog.create(dog);
 
-  let temperamentDb = await Temperament.findAll({ where: { temperament : temperament } })
-  dogCreated.addTemperament(temperamentDb)
-  
-  res.status(200).send("Perrito creado :D")
-})
+  let temperamentDb = await Temperament.findAll({
+    where: { name: temperament },
+  });
+  dogCreated.addTemperament(temperamentDb);
+
+  res.status(200).send("Perrito creado :D");
+});
+
 
 module.exports = router;

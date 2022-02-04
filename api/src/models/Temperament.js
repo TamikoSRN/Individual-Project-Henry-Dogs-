@@ -1,10 +1,10 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes } = require('sequelize')
 
 module.exports = (sequelize) => {
-  sequelize.define("temperament", {
-    temperament: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-  });
-};
+    sequelize.define('temperament',{
+        name: {
+               type: DataTypes.STRING,
+               allowNull: true
+        }
+    })
+}
