@@ -1,10 +1,9 @@
 .navBar {
-    background-color: rgb(37, 50, 58);
+    background-color: rgb(37, 50, 58, 0.5);
     background-repeat: no-repeat;
     height: 100px;
     position: fixed;
     width: 100%;
-    opacity: 80%;
     z-index: 100;
 }
 

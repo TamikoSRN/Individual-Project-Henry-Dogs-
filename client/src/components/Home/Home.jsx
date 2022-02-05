@@ -20,11 +20,12 @@ export default function Home() {
   }
 
   return (
-    <div className="doggos">
-      <button onClick={e=> {handleClick(e)}}> Refresh list </button>
+<div className="doggos">
+  <div>
+<button onClick={e=> {handleClick(e)}}> Refresh list </button>
+  </div>
 
-
-<div className="positions">
+  <div className="positions">
       {allDogs?.map((e) => {
         return (
           <Fragment>
@@ -39,7 +40,7 @@ export default function Home() {
           </Fragment>
         );
       })}
-    </div>
-    </div>
+  </div>
+</div>
   );
 }
