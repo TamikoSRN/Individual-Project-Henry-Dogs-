@@ -22,25 +22,9 @@ export default function Home() {
   return (
     <div className="doggos">
       <button onClick={e=> {handleClick(e)}}> Refresh list </button>
-            <select>
-                <option value = "asc"> A-Z </option>
-                <option value = "desc"> Z-A </option>
-            </select>
-            <select>
-                <option value="AllDogs">All existent breeds</option>
-                <option value="Api">All official breeds</option>
-                <option value="Created">All created breeds</option>
-            </select>
-            <select>
-                <option value="HeaviestWeight">Heaviest breeds</option>
-                <option value="LightestWeight">Lightest breeds</option>
-            </select>
-            <select>
-                <option value="TallerBreeds">Taller breeds</option>
-                <option value="ShortestBreeds">Shortest breeds</option>
-            </select>
 
 
+<div className="positions">
       {allDogs?.map((e) => {
         return (
           <Fragment>
@@ -55,6 +39,7 @@ export default function Home() {
           </Fragment>
         );
       })}
+    </div>
     </div>
   );
 }

@@ -11,3 +11,14 @@ body{
     background-attachment: fixed;
     z-index: -1;
 }
+
+.positions {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    position: relative; right: 15px;
+    margin-top: 150px;
+    }

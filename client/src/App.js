@@ -4,6 +4,7 @@ import Home from "./components/Home/Home";
 import LandingPage from "./components/LandingPage/LandingPage";
 import About from "./components/about";
 import Nav from "./components/NavBar/navBar";
+import "./app.css"
 
 function App() {
   return (
