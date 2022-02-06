@@ -21,9 +21,25 @@ export default function Home() {
 
   return (
 <div className="doggos">
-  <div>
+  <div className="refresh">
 <button onClick={e=> {handleClick(e)}}> Refresh list </button>
+
   </div>
+<div className="lists">
+          <select>
+            <option value="asc"> A-Z </option>
+            <option value="desc"> Z-A </option>
+          </select>
+          <select>
+            <option value="HeaviestWeight">Heaviest breeds</option>
+            <option value="LightestWeight">Lightest breeds</option>
+          </select>
+          <select>
+            <option value="AllDogs">All existent breeds</option>
+            <option value="Api">All official breeds</option>
+            <option value="Created">All created breeds</option>
+          </select>
+        </div>
 
   <div className="positions">
       {allDogs?.map((e) => {
@@ -33,7 +49,7 @@ export default function Home() {
                 id={e.id}
                 name={e.name}
                 image={e.image}
-                temperament={e.temperament}
+                temperament={e.temperament? e.temperament : "No temperament info avaiable"}
                 height={e.height}
                 weight={e.weight}
                 />

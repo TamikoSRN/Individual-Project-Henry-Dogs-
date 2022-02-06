@@ -1,28 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Korone from "../img/korone_preview_rev_3.png";
 import "./navBar.css";
+// import underDog from "../img/underDog.png"
+import Fou from "../img/Fouuu.png";
 
 const Nav = ({ brand }) => {
   return (
     <div>
-        <nav className="navBar"> 
-        <Link to={"/"} className="title">
+      <nav className="navBar">
+        <Link to={"/home"} className="title">
           {brand}
+
+          <img src={Fou} className="Fou" alt="" />
         </Link>
-        <div className="lists">
-            <select>
-                <option value = "asc"> A-Z </option>
-                <option value = "desc"> Z-A </option>
-                <option value="HeaviestWeight">Heaviest breeds</option>
-                <option value="LightestWeight">Lightest breeds</option>
-            </select>
-            <select>
-                <option value="AllDogs">All existent breeds</option>
-                <option value="Api">All official breeds</option>
-                <option value="Created">All created breeds</option>
-            </select>
-            </div>
+        {/* <Link to={"/"} >
+          <img src={underDog}  className="underDog" alt=""/>
+            Landing Page
+          </Link> */}
+        <Link to="/dog" className="Creation">
+          Create your own Doggo!
+        </Link>
       </nav>
     </div>
   );

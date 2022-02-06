@@ -9,6 +9,7 @@ export default function homeRouter() {
   return (
     <div>
       <Nav brand="The Dog's Wikia" />
+      
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />

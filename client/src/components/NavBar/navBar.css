@@ -13,12 +13,12 @@
   max-width: 14%;
   justify-content: center;
   color: rgb(233, 231, 231);
+  font-family: "Playfair Display", serif;
   font-size: 35px;
   text-decoration: none;
   align-items: center;
   text-align: center;
   position: relative;
-  font-family: "Playfair Display", serif;
   margin: auto;
 }
 
@@ -28,7 +28,40 @@
   position: relative; left: 400px;
 } */
 
-.lists{
-  text-align: center;
-  margin-top: 10px;
+
+/* .underDog {
+  justify-content: left;
+  width: 70px;
+  position: relative; 
+  bottom: 34px;
+  left: 27px;
+}
+
+.underDogText {
+  position: relative;
+  bottom: 52px;
+  left: 16.5px;
+  color: rgb(233, 231, 231);
+  font-family: "Playfair Display", serif;
+  display: flex;
+  flex-direction: column;
+  max-width: 5%;
+} */
+
+.Creation {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  font-size: 25px;
+  left: 1315px;
+  bottom: 83px;
+  color: rgb(233, 231, 231);
+  font-family: "Playfair Display", serif;
+  max-width: 14%;
+}
+
+.Fou {
+  position: relative;
+  bottom: 12px;
+  width: 350px;
 }

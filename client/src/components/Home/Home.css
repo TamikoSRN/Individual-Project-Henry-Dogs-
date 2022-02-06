@@ -1,24 +1,38 @@
-body{
-    margin: 0;
-    padding: 0;
+body {
+  margin: 0;
+  padding: 0;
 }
 .doggos {
-    background-image: url("../img/snowDoggo.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    background-attachment: fixed;
-    z-index: -1;
+  background-image: url("../img/snowDoggo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-attachment: fixed;
+  z-index: -1;
 }
 
 .positions {
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    position: relative; right: 15px;
-    margin-top: 150px;
-    }
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  position: relative;
+  margin-top: 140px;
+}
+
+.refresh {
+    display: flex;
+    justify-content: right;
+    position: relative;
+    top: 110px;
+    right: 90px;
+}
+
+.lists{
+  text-align: center;
+  position: relative;
+  top: 105px;
+}

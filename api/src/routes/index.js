@@ -59,17 +59,44 @@ router.get("/temperament", async (req, res) => {
 
 
 router.post("/dog", async (req, res) => {
-  let { dog, temperament } = req.body;
 
-  let dogCreated = await Dog.create(dog);
+  let {
+    name, 
+    height, 
+    weight, 
+    lifeSpan, 
+    image, 
+    createdAtDb, 
+    temperament
+  } = req.body
+
+  let dogCreated = await Dog.create({
+    name,
+    height,
+    weight,
+    lifeSpan,
+    image,
+    createdAtDb
+  })
 
   let temperamentDb = await Temperament.findAll({
-    where: { name: temperament },
-  });
-  dogCreated.addTemperament(temperamentDb);
+    where: { name : temperament }
+  })
+  dogCreated.addTemperament(temperamentDb)
+  res.status(200).send("Perrito creado :D")
 
-  res.status(200).send("Perrito creado :D");
+//   let { dog, temperament } = req.body;
+
+//   let dogCreated = await Dog.create(dog);
+
+//   let temperamentDb = await Temperament.findAll({
+//     where:{ 
+//       name: temperament
+//     }
+//   });
+//   console.log(temperamentDb)
+//   dogCreated.addTemperament(temperamentDb);
+//   res.status(200).send("Perrito creado :D");
 });
-
 
 module.exports = router;

@@ -1,5 +1,5 @@
 .card-container {
-  backdrop-filter: blur(25px);
+  backdrop-filter: blur(7px);
   width: 300px;
   overflow: hidden;
   transition: 0.3s;
@@ -17,9 +17,8 @@
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
   text-align: center;
-  color: white;
+  color: rgb(255, 255, 255);
   font-weight: 200;
-  text-transform: uppercase;
 }
 
 .image-container img {
@@ -28,7 +27,7 @@
 }
 
 .card-content {
-  margin: 1rem;
+  margin: 15px;
   margin-top: 0.5rem;
 }
 

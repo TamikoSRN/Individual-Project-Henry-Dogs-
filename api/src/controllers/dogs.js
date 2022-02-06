@@ -24,7 +24,10 @@ const getDBinfo = async () => {
     const dogInDB = await Dog.findAll({
         include:{ 
             model: Temperament,
-            attributes: ["name"]
+            attributes: ["name"],
+            through: {
+                attributes: [],
+            }
            }
     })
 
