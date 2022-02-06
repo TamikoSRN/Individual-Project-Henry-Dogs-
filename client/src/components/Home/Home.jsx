@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDogs } from "../../actions/actions";
+import { getDogs, filterDogsByWeight, filterDogsByCreated } from "../../actions/actions";
 import Card from "../DogCard/DogCard";
 import "./Home.css"
 import Pagination from "../Pagination/Pagination";
@@ -32,7 +32,13 @@ export default function Home() {
     dispatch(getDogs());
   }
 
+  function handleFilterWeight(e){
+    dispatch(filterDogsByWeight(e.target.value))
+  }
 
+  function handleFilterDogsByCreated(e){
+    dispatch(filterDogsByCreated(e.target.value))
+  }
 
   return (
 <div className="doggos">
@@ -45,14 +51,15 @@ export default function Home() {
             <option value="asc"> A-Z </option>
             <option value="desc"> Z-A </option>
           </select>
-          <select>
-            <option value="HeaviestWeight">Heaviest breeds</option>
-            <option value="LightestWeight">Lightest breeds</option>
+          <select onChange={e => handleFilterWeight(e)}>
+            <option value="AllWeights">Unordered Weights</option>
+            <option value="HeavyWeight">Heaviest breeds</option>
+            <option value="LightWeight">Lightest breeds</option>
           </select>
-          <select>
+          <select onChange={(e)=> handleFilterDogsByCreated(e)}>
             <option value="AllDogs">All existent breeds</option>
-            <option value="Api">All official breeds</option>
-            <option value="Created">All created breeds</option>
+            <option value="Api">Official breeds</option>
+            <option value="Created">Created breeds</option>
           </select>
         </div>
 
@@ -64,9 +71,11 @@ export default function Home() {
                 id={e.id}
                 name={e.name}
                 image={e.image}
-                temperament={e.temperament? e.temperament : "No temperament info avaiable"}
+                temperament={e.temperament}
+                temperaments={e.temperaments? e.temperaments : "No temperament info avaiable"}
                 height={e.height}
                 weight={e.weight}
+                createdAtDb={e.createdAtDb}
                 />
           </Fragment>
         );

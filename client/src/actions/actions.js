@@ -11,9 +11,6 @@ export const getDogs = () => (dispatch) => {
     })
 }
 
-
-
-
 // export function getDogs() {
 //     return async function(dispatch){
 //         var json = await axios.get(url, {
@@ -25,3 +22,19 @@ export const getDogs = () => (dispatch) => {
 //         })
 //     }
 // }
+
+export function filterDogsByWeight(payload){
+    return {
+        type: "FILTER_BY_WEIGHT",
+        payload
+    }
+}
+
+
+
+export function filterDogsByCreated(payload){
+    return {
+        type: "FILTER_BY_CREATED",
+        payload
+    }
+}
