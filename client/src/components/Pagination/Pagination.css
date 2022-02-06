@@ -1,0 +1,36 @@
+.Pagination__ul {
+  list-style-type: none;
+  padding: 10px;
+  display: flex;
+  margin-bottom: 0;
+  position: relative; bottom: 1130px;
+}
+.Pagination__Li {
+  padding: 10px;
+}
+.Pagination__Button {
+  height: 48px;
+  width: 65px;
+  margin: 10.55px;
+  border-radius: 17px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  color: #000;
+  /* -webkit-box-reflect: below 5px linear-gradient(transparent, #0002); */
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.Pagination__Button:hover 
+{
+    transition-delay: 0s;
+    color: #000;
+    box-shadow: 0 0 7px rgb(214, 214, 212),
+                0 0 10px rgb(214, 214, 212),
+                0 0 20px rgb(214, 214, 212),
+                0 0 30px rgb(214, 214, 212),
+                0 0 40px rgb(214, 214, 212);        
+                transform: translateY(2px);  
+}
+
+

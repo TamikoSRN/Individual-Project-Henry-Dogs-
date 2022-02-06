@@ -4,11 +4,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDogs } from "../../actions/actions";
 import Card from "../DogCard/DogCard";
 import "./Home.css"
+import Pagination from "../Pagination/Pagination";
 
 export default function Home() {
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const allDogs = useSelector((state) => state.dogs);
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const [dogsPerPage, setDogsPerPage] = useState(8)
+  const indexOfLastDog = currentPage * dogsPerPage
+  const indexOfFirstDog = indexOfLastDog - dogsPerPage
+  const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog)
+
+  const pagination = (numberOfPage) => {
+    setCurrentPage(numberOfPage)
+  }
+
+
 
   useEffect(() => {
     dispatch(getDogs());
@@ -18,6 +31,8 @@ export default function Home() {
     e.preventDefault();
     dispatch(getDogs());
   }
+
+
 
   return (
 <div className="doggos">
@@ -42,7 +57,7 @@ export default function Home() {
         </div>
 
   <div className="positions">
-      {allDogs?.map((e) => {
+      {currentDogs?.map((e) => {
         return (
           <Fragment>
               <Card
@@ -57,6 +72,11 @@ export default function Home() {
         );
       })}
   </div>
+      <Pagination
+      dogsPerPage={dogsPerPage}
+      allDogs={allDogs.length}
+      pagination={pagination}
+      />
 </div>
   );
 }
