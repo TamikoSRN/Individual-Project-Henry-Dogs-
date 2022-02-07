@@ -20,19 +20,21 @@ body {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   position: relative;
-  margin-top: 140px;
-}
-
-.refresh {
-    display: flex;
-    justify-content: right;
-    position: relative;
-    top: 110px;
-    right: 90px;
+  margin-top: 130px;
 }
 
 .lists{
   text-align: center;
   position: relative;
-  top: 105px;
+  top: 120px;
+  height: 70px;
+}
+
+.listAlpha{
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-radius: 6px;
+  margin-inline-start: 3px;
+  
 }

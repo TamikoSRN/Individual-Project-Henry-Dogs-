@@ -1,11 +1,13 @@
 .card-container {
-  backdrop-filter: blur(7px);
+  backdrop-filter: blur(6px);
   width: 300px;
   overflow: hidden;
   transition: 0.3s;
-  animation: ease-in;
+  animation: ease-in-out;
   box-shadow: 0px 0px 15px -5px;
   margin-bottom: 20%;
+  border-radius: 20px;
+  border: 2px solid rgb(0, 0, 0);
 }
 
 .card-container:hover {
@@ -18,12 +20,15 @@
   margin-top: 0.5rem;
   text-align: center;
   color: rgb(255, 255, 255);
-  font-weight: 200;
+  font-weight: normal;
+  font-style: normal;
+  text-shadow: 2px 3px 4px #000000;
 }
 
 .image-container img {
   overflow: hidden;
   height: 200px;
+  /* border: 1px solid rgb(0, 0, 0); */
 }
 
 .card-content {
@@ -35,6 +40,7 @@
   text-align: center;
   color: rgb(238, 236, 236);
   text-transform: uppercase;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .heightAndWeight {
@@ -42,6 +48,7 @@
   justify-content: center;
   color: white;
   font-family: Arial;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .btn {

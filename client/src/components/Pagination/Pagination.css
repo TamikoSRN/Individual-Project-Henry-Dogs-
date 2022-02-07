@@ -16,7 +16,7 @@
   font-weight: 600;
   letter-spacing: 2.5px;
   color: #000;
-  /* -webkit-box-reflect: below 5px linear-gradient(transparent, #0002); */
+  -webkit-box-reflect: below 5px linear-gradient(transparent, #0002);
   transition: 0.3s;
   cursor: pointer;
 }

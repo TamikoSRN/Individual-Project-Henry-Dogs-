@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDogs, filterDogsByWeight, filterDogsByCreated } from "../../actions/actions";
+import { getDogs, filterDogsByWeight, filterDogsByCreated, filterByName} from "../../actions/actions";
 import Card from "../DogCard/DogCard";
 import "./Home.css"
 import Pagination from "../Pagination/Pagination";
@@ -11,8 +11,10 @@ export default function Home() {
   const dispatch = useDispatch();
   const allDogs = useSelector((state) => state.dogs);
 
+
   const [currentPage, setCurrentPage] = useState(1)
   const [dogsPerPage, setDogsPerPage] = useState(8)
+  const [orden, setOrden] = useState("")
   const indexOfLastDog = currentPage * dogsPerPage
   const indexOfFirstDog = indexOfLastDog - dogsPerPage
   const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog)
@@ -27,36 +29,45 @@ export default function Home() {
     dispatch(getDogs());
   }, [dispatch]);
 
-  function handleClick(e) {
-    e.preventDefault();
-    dispatch(getDogs());
+
+  function handleSort (e){
+    e.preventDefault()
+    dispatch(filterByName(e.target.value))
+    setCurrentPage(1)
+    setOrden(`Ordenado ${e.target.value}`)
   }
 
-  function handleFilterWeight(e){
+
+  function handleFilterDogsByWeight(e){
+    e.preventDefault()
     dispatch(filterDogsByWeight(e.target.value))
+    setCurrentPage(1)
+    setOrden(`Ordenado ${e.target.value}`)
   }
+
 
   function handleFilterDogsByCreated(e){
     dispatch(filterDogsByCreated(e.target.value))
+    setCurrentPage(1)
   }
+  
 
   return (
 <div className="doggos">
-  <div className="refresh">
-<button onClick={e=> {handleClick(e)}}> Refresh list </button>
-
-  </div>
 <div className="lists">
-          <select>
-            <option value="asc"> A-Z </option>
-            <option value="desc"> Z-A </option>
+          <select className="listAlpha" onChange={e => handleSort(e)}>
+            <option hidden="A-Z">Order by Alphabetic</option>
+            <option value="Asc"> A-Z </option>
+            <option value="Desc"> Z-A </option>
           </select>
-          <select onChange={e => handleFilterWeight(e)}>
+          <select className="listAlpha" onChange={e => handleFilterDogsByWeight(e)}>
+            <option hidden>Order by Weight</option>
             <option value="AllWeights">Unordered Weights</option>
             <option value="HeavyWeight">Heaviest breeds</option>
             <option value="LightWeight">Lightest breeds</option>
           </select>
-          <select onChange={(e)=> handleFilterDogsByCreated(e)}>
+          <select className="listAlpha" onChange={(e)=> handleFilterDogsByCreated(e)}>
+            <option hidden="orderCreation">Order by Breeds</option>
             <option value="AllDogs">All existent breeds</option>
             <option value="Api">Official breeds</option>
             <option value="Created">Created breeds</option>
