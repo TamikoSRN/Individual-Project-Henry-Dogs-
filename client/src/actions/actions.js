@@ -1,4 +1,4 @@
-// import axios from "axios"
+import axios from "axios"
 
 const GET_DOGS = "GET_DOGS"
 const url = "http://localhost:3001/dogs"
@@ -10,7 +10,6 @@ export const getDogs = () => (dispatch) => {
         dispatch({type: GET_DOGS, payload: dogs})
     })
 }
-
 // export function getDogs() {
 //     return async function(dispatch){
 //         var json = await axios.get(url, {
@@ -22,6 +21,21 @@ export const getDogs = () => (dispatch) => {
 //         })
 //     }
 // }
+
+
+export function getDogsName(name){
+    return async function (dispatch){
+        try{
+            var json = await axios.get("http://localhost:3001/dogs?name=" + name)
+            return dispatch({
+                type: "GET_DOGS_NAME",
+                payload: json.data
+            })
+        } catch(e){
+            console.log(e)
+        }
+    }
+}
 
 export function filterDogsByWeight(payload){
     return {

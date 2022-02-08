@@ -3,7 +3,7 @@
   padding: 10px;
   display: flex;
   margin-bottom: 0;
-  position: relative; bottom: 1130px;
+  position: relative; bottom: 65px; 
 }
 .Pagination__Li {
   padding: 10px;
@@ -11,7 +11,7 @@
 .Pagination__Button {
   height: 48px;
   width: 65px;
-  margin: 10.55px;
+  margin: 10.55px; 
   border-radius: 17px;
   font-weight: 600;
   letter-spacing: 2.5px;

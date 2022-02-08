@@ -1,10 +1,10 @@
 .navBar {
-    background-color: rgb(37, 50, 58, 0.5);
-    background-repeat: no-repeat;
-    height: 100px;
-    position: absolute;
-    width: 100%;
-    z-index: 100;
+  background-color: rgb(37, 50, 58, 0.5);
+  background-repeat: no-repeat;
+  height: 100px;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
 }
 
 .title {
@@ -27,7 +27,6 @@
   height: 170px;
   position: relative; left: 400px;
 } */
-
 
 /* .underDog {
   justify-content: left;
@@ -65,3 +64,4 @@
   bottom: 12px;
   width: 350px;
 }
+

@@ -6,6 +6,7 @@ import Card from "../DogCard/DogCard";
 import "./Home.css"
 import Pagination from "../Pagination/Pagination";
 
+
 export default function Home() {
 
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ export default function Home() {
 
   const [currentPage, setCurrentPage] = useState(1)
   const [dogsPerPage, setDogsPerPage] = useState(8)
+  const [peso, setPeso] = useState("")
   const [orden, setOrden] = useState("")
   const indexOfLastDog = currentPage * dogsPerPage
   const indexOfFirstDog = indexOfLastDog - dogsPerPage
@@ -42,7 +44,7 @@ export default function Home() {
     e.preventDefault()
     dispatch(filterDogsByWeight(e.target.value))
     setCurrentPage(1)
-    setOrden(`Ordenado ${e.target.value}`)
+    setPeso(`Ordenado ${e.target.value}`)
   }
 
 
@@ -54,20 +56,18 @@ export default function Home() {
 
   return (
 <div className="doggos">
+
 <div className="lists">
           <select className="listAlpha" onChange={e => handleSort(e)}>
-            <option hidden="A-Z">Order by Alphabetic</option>
             <option value="Asc"> A-Z </option>
             <option value="Desc"> Z-A </option>
           </select>
           <select className="listAlpha" onChange={e => handleFilterDogsByWeight(e)}>
-            <option hidden>Order by Weight</option>
             <option value="AllWeights">Unordered Weights</option>
             <option value="HeavyWeight">Heaviest breeds</option>
             <option value="LightWeight">Lightest breeds</option>
           </select>
           <select className="listAlpha" onChange={(e)=> handleFilterDogsByCreated(e)}>
-            <option hidden="orderCreation">Order by Breeds</option>
             <option value="AllDogs">All existent breeds</option>
             <option value="Api">Official breeds</option>
             <option value="Created">Created breeds</option>
@@ -77,6 +77,7 @@ export default function Home() {
   <div className="positions">
       {currentDogs?.map((e) => {
         return (
+          
           <Fragment>
               <Card
                 id={e.id}
@@ -92,11 +93,12 @@ export default function Home() {
         );
       })}
   </div>
-      <Pagination
-      dogsPerPage={dogsPerPage}
-      allDogs={allDogs.length}
-      pagination={pagination}
-      />
+
+  <Pagination
+  dogsPerPage={dogsPerPage}
+  allDogs={allDogs.length}
+  pagination={pagination}
+  /> 
 </div>
   );
 }

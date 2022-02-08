@@ -12,6 +12,7 @@ function rootReducer(state = initialState, action) {
         dogsAll: action.payload,
       };
 
+      
     case "FILTER_BY_WEIGHT":
       function sortA(a) {
         let weightSortA = a.weight.split("-");
@@ -37,7 +38,7 @@ function rootReducer(state = initialState, action) {
       let dogsWeight 
 
       if (action.payload === "AllWeights") {
-        dogsWeight = state.allDogs;
+        dogsWeight = state.dogs;
       }
       if (action.payload === "HeavyWeight") {
         dogsWeight = state.dogs.sort(function (a, b) {
@@ -53,6 +54,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         dogs: dogsWeight,
       };
+
 
     case "FILTER_BY_CREATED":
       const allDogs2 = state.dogsAll;
@@ -98,8 +100,13 @@ function rootReducer(state = initialState, action) {
             });
       return {
         ...state,
-        characters: dogsSorted,
+        dogs: dogsSorted,
       };
+      case "GET_DOGS_NAME":
+        return {
+          ...state,
+          dogs: action.payload
+        }
     default:
       return state;
   }

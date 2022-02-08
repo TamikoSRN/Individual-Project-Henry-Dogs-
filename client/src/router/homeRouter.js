@@ -4,7 +4,6 @@ import Home from "../components/Home/Home";
 import About from "../components/about";
 import Nav from "../components/NavBar/navBar";
 
-
 export default function homeRouter() {
   return (
     <div>
