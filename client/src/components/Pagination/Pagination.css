@@ -1,9 +1,9 @@
 .Pagination__ul {
   list-style-type: none;
   padding: 10px;
-  display: flex;
   margin-bottom: 0;
-  position: relative; bottom: 65px; 
+  position: relative; bottom: 205px;
+  margin-top: 157.9px;
 }
 .Pagination__Li {
   padding: 10px;
@@ -11,7 +11,7 @@
 .Pagination__Button {
   height: 48px;
   width: 65px;
-  margin: 10.55px; 
+  margin: 10.46px; 
   border-radius: 17px;
   font-weight: 600;
   letter-spacing: 2.5px;

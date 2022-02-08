@@ -62,13 +62,22 @@ router.post("/dog", async (req, res) => {
 
   let {
     name, 
-    height, 
-    weight, 
+    minimHeight, 
+    maximHeight,
+    minimWeight,
+    maximWeight,
     lifeSpan, 
     image, 
     createdAtDb, 
     temperament
   } = req.body
+
+  if(!name || !minimHeight || !maximHeight || !minimWeight ||!maximWeight ){
+    res.status(404).send("Please, fulfill the required camps!")
+}
+
+let height = minimHeight + " - " + maximHeight
+let weight = minimWeight + " - " + maximWeight
 
   let dogCreated = await Dog.create({
     name,

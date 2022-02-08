@@ -73,6 +73,7 @@ export default function Home() {
             <option value="Created">Created breeds</option>
           </select>
         </div>
+ 
 
   <div className="positions">
       {currentDogs?.map((e) => {
@@ -82,9 +83,9 @@ export default function Home() {
               <Card
                 id={e.id}
                 name={e.name}
-                image={e.image}
+                image={e.image ? e.image : e.image }
                 temperament={e.temperament}
-                temperaments={e.temperaments? e.temperaments : "No temperament info avaiable"}
+                temperaments={e.temperaments}
                 height={e.height}
                 weight={e.weight}
                 createdAtDb={e.createdAtDb}
@@ -93,12 +94,12 @@ export default function Home() {
         );
       })}
   </div>
-
   <Pagination
   dogsPerPage={dogsPerPage}
   allDogs={allDogs.length}
   pagination={pagination}
   /> 
+
 </div>
   );
 }

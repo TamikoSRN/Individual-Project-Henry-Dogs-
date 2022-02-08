@@ -37,6 +37,25 @@ export function getDogsName(name){
     }
 }
 
+export function getDogTemperament(){
+    return async function(dispatch){
+      
+            var json = await axios.get("http://localhost:3001/temperament")
+            return dispatch({
+                type: "GET_DOGS_TEMPERAMENT",
+                payload: json.data
+            })
+    }
+}
+
+export function postDog(payload){
+    return async function(dispatch){
+            var json = await axios.post("http://localhost:3001/dog", payload)
+            console.log(json)
+            return json
+        }
+}
+
 export function filterDogsByWeight(payload){
     return {
         type: "FILTER_BY_WEIGHT",
