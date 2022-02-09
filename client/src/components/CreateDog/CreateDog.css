@@ -54,7 +54,7 @@
 .titlee {
   position: relative;
   bottom: 450px;
-  left: 204px;
+  left: 204.5px;
   color: rgb(233, 231, 231);
   font-family: "Playfair Display", serif;
   font-size: 40px;
@@ -64,6 +64,7 @@
 .card-containerr {
   position: relative;
   right: 250px;
+  top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
