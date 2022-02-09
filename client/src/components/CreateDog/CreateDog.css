@@ -1,0 +1,337 @@
+.backgroundd {
+  background-image: url("../img/dogPlane.jpg");
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  background-attachment: fixed;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  overflow: hidden;
+  border: 0;
+}
+
+.buttonn {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  bottom: 450px;
+  right: 442px;
+  height: 40px;
+  width: 90px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  background: #fff;
+  transition: all 0.2s linear;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.buttonn > svg {
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 20px;
+  transition: all 0.4s ease-in-out;
+}
+
+.buttonn:hover > svg {
+  font-size: 1.2em;
+  transform: translateX(-5px);
+}
+
+.buttonn:hover {
+  box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+}
+
+.buttonn:active {
+  background-color: #fff;
+  transform: translateY(1px);
+}
+
+.titlee {
+  position: relative;
+  bottom: 450px;
+  left: 204px;
+  color: rgb(233, 231, 231);
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.card-containerr {
+  position: relative;
+  right: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(6px);
+  height: 83vh;
+  width: 50vh;
+  box-shadow: 0px 0px 15px -5px;
+  border-radius: 20px;
+  border: 0px solid rgb(0, 0, 0);
+}
+
+.breed {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 28px;
+  right: 2px;
+  width: 11rem;
+  height: 5rem;
+  margin: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(223, 223, 223);
+  text-shadow: 2px 3px 4px #000000;
+}
+
+.breedInput {
+  height: 30px;
+  margin-left: 22px;
+  position: relative;
+  top: 6px;
+  background-color: rgb(230, 228, 228);
+  border: 0;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 3px;
+  border-top-left-radius: 0px;
+  font-size: 18px;
+  padding: 15px;
+  height: 30px;
+  width: 215px;
+}
+
+.minHeight {
+  display: flex;
+  justify-content: center;
+  width: 11rem;
+  height: 5rem;
+  margin: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(223, 223, 223);
+  text-shadow: 2px 3px 4px #000000;
+}
+
+.minHeightInput {
+  height: 30px;
+  margin-left: 16px;
+  position: relative;
+  top: 41px;
+  background-color: rgb(230, 228, 228);
+  border: 0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 3px;
+  font-size: 18px;
+  padding: 15px;
+  height: 30px;
+  width: 215px;
+}
+
+.maxHeight {
+  display: flex;
+  justify-content: center;
+  width: 11rem;
+  height: 5rem;
+  margin: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(223, 223, 223);
+  text-shadow: 2px 3px 4px #000000;
+}
+
+.maxHeightInput {
+  height: 30px;
+  margin-left: 16px;
+  position: relative;
+  top: 41px;
+  background-color: rgb(230, 228, 228);
+  border: 0;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 3px;
+  border-top-left-radius: 0px;
+  font-size: 18px;
+  padding: 15px;
+  height: 30px;
+  width: 215px;
+}
+
+.minWeight {
+  display: flex;
+  justify-content: center;
+  width: 11rem;
+  height: 5rem;
+  margin: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(223, 223, 223);
+  text-shadow: 2px 3px 4px #000000;
+}
+
+.minWeightInput {
+  height: 30px;
+  margin-left: 11px;
+  position: relative;
+  top: 41px;
+  background-color: rgb(230, 228, 228);
+  border: 0;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 3px;
+  border-top-left-radius: 0px;
+  font-size: 18px;
+  padding: 15px;
+  height: 30px;
+  width: 215px;
+}
+
+.maxWeight {
+  display: flex;
+  justify-content: center;
+  width: 11rem;
+  height: 5rem;
+  margin: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(223, 223, 223);
+  text-shadow: 2px 3px 4px #000000;
+}
+
+.maxWeightInput {
+  height: 30px;
+  margin-left: 12px;
+  position: relative;
+  top: 41px;
+  background-color: rgb(230, 228, 228);
+  border: 0;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 3px;
+  border-top-left-radius: 0px;
+  font-size: 18px;
+  padding: 15px;
+  height: 30px;
+  width: 215px;
+}
+
+.lifeSpan {
+  display: flex;
+  justify-content: center;
+  width: 11rem;
+  height: 5rem;
+  margin: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(223, 223, 223);
+  text-shadow: 2px 3px 4px #000000;
+}
+
+.lifeSpanInput {
+  height: 30px;
+  margin-left: 38px;
+  position: relative;
+  top: 41px;
+  background-color: rgb(230, 228, 228);
+  border: 0;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 3px;
+  border-top-left-radius: 0px;
+  font-size: 18px;
+  padding: 15px;
+  height: 30px;
+  width: 215px;
+}
+
+.picture {
+  display: flex;
+  justify-content: center;
+  width: 11rem;
+  height: 5rem;
+  margin: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  position: relative;
+  top: 10px;
+  color: rgb(223, 223, 223);
+  text-shadow: 2px 3px 4px #000000;
+}
+
+.pictureInput {
+  height: 30px;
+  margin-left: 12px;
+  position: relative;
+  top: 6px;
+  background-color: rgb(230, 228, 228);
+  border: 0;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 3px;
+  border-top-left-radius: 0px;
+  font-size: 18px;
+  padding: 15px;
+  height: 30px;
+  width: 215px;
+}
+
+.createDogButton {
+  position: relative;
+  left: 35px;
+  bottom: 22px;
+  color: #090909;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #ececec;
+  border: 1px solid #e8e8e8;
+  transition: all 0.2s;
+  box-shadow: 2px 2px 4px #c5c5c5, -3px -3px 6px #ffffff;
+  cursor: pointer;
+}
+
+.createDogButton:hover {
+  border: 1px solid white;
+}
+
+.createDogButton:active {
+  background-color: rgb(245, 245, 245);
+  transform: translateY(1px);
+}
+
+.listTemps {
+  text-align: center;
+  position: relative;
+  bottom: 32px;
+  left: 15px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  width: 90%;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: none;
+  border-radius: 6px;
+  background-color: transparent;
+  margin-inline-start: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-shadow: 1px 2px 2px #959191;
+}
+
+.temperamentsItems {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 35px;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 2px #000000;
+}

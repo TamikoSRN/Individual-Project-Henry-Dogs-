@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import {getDogTemperament, postDog} from "../../actions/actions"
+import "./CreateDog.css"
 
 export default function DogCreate(){
     const dispatch = useDispatch()
@@ -54,85 +55,98 @@ export default function DogCreate(){
     }, [dispatch]);
 
     return(
-        <div>
-            <Link to="/home"><button>Home</button></Link>
+        <div className="backgroundd">
+
+            <Link to="/home" className="buttonn">⬅ Home</Link>
             
-            <h1>Create your own Doggo!</h1>
+            <div>
+            <h1 className="titlee">Create your own Doggo!</h1>
+            </div>
+            <div className="card-containerr">
             <form onSubmit={(e) => handleSubmit(e)}>
-                <div>
+                <div className="breed">
                     <label>Breed:</label>
-                    <input 
+                    <input className="breedInput"
                     type= "text"
                     value= {input.name}
                     name="name"
                     onChange={(e) => handleChange(e)}
+                    required
                    />
                 </div>
-                <div>
+                <div className="minHeight">
                     <label>Min Height:</label>
-                    <input 
+                    <input className="minHeightInput"
                     type= "number"
                     value= {input.minimHeight}
                     name="minimHeight"
                     onChange={(e) => handleChange(e)}
+                    required
                     />
                 </div>
-                <div>
+                <div className="maxHeight">
                     <label>Max Height:</label>
-                    <input 
+                    <input className="maxHeightInput"
                     type= "number"
                     value= {input.maximHeight}
                     name="maximHeight"
                     onChange={(e) => handleChange(e)}
+                    required
                     />
                 </div>
-                <div>
+                <div className="minWeight">
                     <label>Min Weight:</label>
-                    <input
+                    <input className="minWeightInput"
                     type="number"
                     value= {input.minimWeight}
                     name="minimWeight"
                     onChange={(e) => handleChange(e)}
+                    required
                     />
                 </div>
-                <div>
+                <div className="maxWeight">
                     <label>Max Weight:</label>
-                    <input
+                    <input className="maxWeightInput"
                     type="number"
                     value= {input.maximWeight}
                     name="maximWeight"
                     onChange={(e) => handleChange(e)}
+                    required
                     />
                 </div>
-                <div>
+                <div className="lifeSpan">
                     <label>Life Span:</label>
-                    <input 
+                    <input className="lifeSpanInput"
                     type="text"
                     value= {input.lifeSpan}
                     name="lifeSpan"
                     onChange={(e) => handleChange(e)}
                     />
                 </div>
-                <div>
+                <div className="picture">
                     <label>Picture:</label>
-                    <input 
+                    <input className="pictureInput"
                     type="text"
                     value= {input.image}
                     name="image"
                     onChange={(e) => handleChange(e)}
                     />
-                        </div>
+                    </div>
 
-                    <select onChange={handleSelect}>
+                    <select onChange={handleSelect}  className="listTemps">
+                        <option hidden>Dog's temperaments</option>
                         {temperament.map((temperament) => (
                             <option value={temperament}>{temperament}</option>
                         ))}
                     </select>
-                    <ul>{input.temperament.map(el => el + ", ")}</ul>
                     <div>
-                    <button type="submit">Create Dog</button>
+                    <ul className="temperamentsItems">{input.temperament.map(el => el + ", ")}</ul>
+                    </div>
+                    <div>
+                    <button type="submit" className="createDogButton">Create Dog</button>
                     </div>
             </form>
+            </div>
         </div>
     )
 

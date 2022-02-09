@@ -15,16 +15,18 @@
   border-radius: 17px;
   font-weight: 600;
   letter-spacing: 2.5px;
-  color: #000;
+  color: rgb(255, 255, 255);
   -webkit-box-reflect: below 5px linear-gradient(transparent, #0002);
   transition: 0.3s;
   cursor: pointer;
+  border: transparent;
+  background-color: #000000a2;
 }
 
 .Pagination__Button:hover 
 {
     transition-delay: 0s;
-    color: #000;
+    color: rgb(255, 255, 255);
     box-shadow: 0 0 7px rgb(214, 214, 212),
                 0 0 10px rgb(214, 214, 212),
                 0 0 20px rgb(214, 214, 212),

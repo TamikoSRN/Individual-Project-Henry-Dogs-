@@ -14,7 +14,7 @@ export default function Card({ name, image, temperament, temperaments, height, w
       <div className="card-content">
         <h4 className="temperaments">{createdAtDb ? temperaments.map(e => e.name).join(", ") : temperament}</h4>  
         <h5 className="heightAndWeight ">Weight: {weight} kg</h5>
-        {/* <h5 className="heightAndWeight">Height: {height} cm</h5> */}
+         <h5 className="heightAndWeight">Height: {height} cm</h5> 
         <Link to={"/home/" + id}>
           <button className="btn">Learn more!</button>
         </Link>
