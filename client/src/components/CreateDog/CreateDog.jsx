@@ -4,9 +4,26 @@ import { useDispatch, useSelector } from "react-redux"
 import {getDogTemperament, postDog} from "../../actions/actions"
 import "./CreateDog.css"
 
+function validate(input){
+    let errors = {}
+    if (!input.name){
+        errors.name = "Completing with a *BREED'S NAME* is required!"
+    } else if (!input.minimHeight) {
+        errors.minimHeight = "Completing with a *MINIMAL HEIGHT* is required!"
+    } else if (!input.maximHeight) {
+        errors.maximHeight = "Completing with a *MAXIMAL HEIGHT* is required!"
+    } else if  (!input.minimWeight) {
+        errors.minimWeight = "Completing with a *MINIMAL WEIGHT* is required!"
+    } else if (!input.maximWeight) {
+        errors.maximWeight = "Completing with a *MAXIMAL HEIGHT* is required!"
+    }
+    return errors
+}
+
 export default function DogCreate(){
     const dispatch = useDispatch()
     const temperament = useSelector((state) => state.temperaments)
+    const [errors, setErrors] = useState ({})
 
     const [input, setInput] = useState({
         name: "",
@@ -24,6 +41,10 @@ export default function DogCreate(){
             ...input,
             [e.target.name] : e.target.value
         })
+        setErrors(validate({
+            ...input,
+            [e.target.name]: e.target.value
+        }))
         console.log(input)
     }
 
@@ -50,6 +71,13 @@ export default function DogCreate(){
         })
     }
 
+    function handleDelete(el){
+        setInput({
+            ...input,
+            temperament: input.temperament.filter(temp => temp !== el)
+        })
+    }
+
     useEffect(() => {
         dispatch(getDogTemperament())
     }, [dispatch]);
@@ -65,70 +93,87 @@ export default function DogCreate(){
             <div className="card-containerr">
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="breed">
-                    <label>Breed:</label>
+                    <label>Breed</label>
                     <input className="breedInput"
                     type= "text"
                     value= {input.name}
                     name="name"
+                    placeholder="Breed's name"
                     onChange={(e) => handleChange(e)}
-                    required
                    />
+                   {errors.name && (
+                       <p className="error">{errors.name}</p>
+                   )}
                 </div>
                 <div className="minHeight">
-                    <label>Min Height:</label>
+                    <label>Min Height</label>
                     <input className="minHeightInput"
                     type= "number"
                     value= {input.minimHeight}
                     name="minimHeight"
+                    placeholder="Minimal height"
                     onChange={(e) => handleChange(e)}
-                    required
                     />
+                    {errors.minimHeight && (
+                        <p className="error">{errors.minimHeight}</p>
+                   )}
                 </div>
                 <div className="maxHeight">
-                    <label>Max Height:</label>
+                    <label>Max Height</label>
                     <input className="maxHeightInput"
                     type= "number"
                     value= {input.maximHeight}
                     name="maximHeight"
+                    placeholder="Maximal height"
                     onChange={(e) => handleChange(e)}
-                    required
                     />
+                    {errors.maximHeight && (
+                        <p className="error">{errors.maximHeight}</p>
+                   )}
                 </div>
                 <div className="minWeight">
-                    <label>Min Weight:</label>
+                    <label>Min Weight</label>
                     <input className="minWeightInput"
                     type="number"
                     value= {input.minimWeight}
                     name="minimWeight"
+                    placeholder="Minimal weight"
                     onChange={(e) => handleChange(e)}
-                    required
                     />
+                    {errors.minimWeight && (
+                        <p className="error">{errors.minimWeight}</p>
+                   )}
                 </div>
                 <div className="maxWeight">
-                    <label>Max Weight:</label>
+                    <label>Max Weight</label>
                     <input className="maxWeightInput"
                     type="number"
                     value= {input.maximWeight}
                     name="maximWeight"
+                    placeholder="Maximal weight"
                     onChange={(e) => handleChange(e)}
-                    required
                     />
+                    {errors.maximWeight && (
+                        <p className="error">{errors.maximWeight}</p>
+                   )}
                 </div>
                 <div className="lifeSpan">
-                    <label>Life Span:</label>
+                    <label>Life Span</label>
                     <input className="lifeSpanInput"
                     type="text"
                     value= {input.lifeSpan}
                     name="lifeSpan"
+                    placeholder="Breed's life span"
                     onChange={(e) => handleChange(e)}
                     />
                 </div>
                 <div className="picture">
-                    <label>Picture:</label>
+                    <label>Picture</label>
                     <input className="pictureInput"
                     type="text"
                     value= {input.image}
                     name="image"
+                    placeholder="Breed's picture URL"
                     onChange={(e) => handleChange(e)}
                     />
                     </div>
@@ -146,6 +191,13 @@ export default function DogCreate(){
                     <button type="submit" className="createDogButton">Create Dog</button>
                     </div>
             </form>
+
+            {input.temperament.map(el =>
+                <div>
+                    <p>{el}</p>
+                    <button onClick={() => handleDelete(el)}>x</button>
+                </div>
+                )}
             </div>
         </div>
     )

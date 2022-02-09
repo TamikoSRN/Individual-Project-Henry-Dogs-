@@ -1,9 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "../components/Home/Home";
-import About from "../components/about";
 import Nav from "../components/NavBar/navBar";
-
+import DogDetail from "../components/DogDetail/DogDetail"
 
 export default function homeRouter() {
   return (
@@ -12,7 +11,7 @@ export default function homeRouter() {
       
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/home/:id" element={<DogDetail/>} />
       </Routes>
     </div>
   );

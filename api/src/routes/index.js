@@ -72,10 +72,6 @@ router.post("/dog", async (req, res) => {
     temperament
   } = req.body
 
-  if(!name || !minimHeight || !maximHeight || !minimWeight ||!maximWeight ){
-    res.status(404).send("Please, fulfill the required camps!")
-}
-
 let height = minimHeight + " - " + maximHeight
 let weight = minimWeight + " - " + maximWeight
 

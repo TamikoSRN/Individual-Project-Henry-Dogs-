@@ -56,6 +56,17 @@ export function postDog(payload){
         }
 }
 
+export function getDetail (id) {
+    return async function (dispatch){
+        var json = await axios.get(`http://localhost:3001/dogs/${id}`)
+        console.log(json)
+         dispatch({
+            type: "GET_DETAIL",
+            payload: json.data
+        })
+    }
+}
+
 export function filterDogsByWeight(payload){
     return {
         type: "FILTER_BY_WEIGHT",
@@ -78,3 +89,4 @@ export function filterByName(payload) {
         payload
     }
 }
+

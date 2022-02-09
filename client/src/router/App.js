@@ -15,6 +15,7 @@ function App() {
         <Route exact path="/" element={<LandingPage />} />
         <Route path="/dog" element={<DogCreate />} />
         <Route path="/*" element={<HomeRouter />} />
+        
       </Routes>
     </>
   );

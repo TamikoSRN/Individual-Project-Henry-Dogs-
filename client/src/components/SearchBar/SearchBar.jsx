@@ -33,10 +33,3 @@ export default function SearchBar({placeholder}){
         </div>
     )
 }
-
-{/* <input 
-type= "text"
-placeholder = "Search your doggo!"
-onChange={(e) => handleInputChange(e)}
-/>
-<button type="submit" onClick={(e) => handleSubmit(e)}>Search</button> */}
