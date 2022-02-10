@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import {Link, useParams} from "react-router-dom"
+import {useParams} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../../actions/actions";
 import "./DogDetail.css"
@@ -32,7 +32,7 @@ export default function Detail(){
                 </div> : <p>Loading...</p>
             }
             <div className="wallpapeerr">
-            <img src={bg}></img>
+            <img src={bg} alt=""></img>
             </div>
         </div>
     )

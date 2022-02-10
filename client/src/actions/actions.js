@@ -48,6 +48,13 @@ export function getDogTemperament(){
     }
 }
 
+export function filterDogsByTemperament(payload){
+    return{
+        type: 'FILTER_DOGS_BY_TEMPERAMENT',
+        payload
+    }
+}
+
 export function postDog(payload){
     return async function(dispatch){
             var json = await axios.post("http://localhost:3001/dog", payload)

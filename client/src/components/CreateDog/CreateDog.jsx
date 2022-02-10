@@ -71,12 +71,12 @@ export default function DogCreate(){
         })
     }
 
-    function handleDelete(el){
-        setInput({
-            ...input,
-            temperament: input.temperament.filter(temp => temp !== el)
-        })
-    }
+    // function handleDelete(el){
+    //     setInput({
+    //         ...input,
+    //         temperament: input.temperament.filter(temp => temp !== el)
+    //     })
+    // }
 
     useEffect(() => {
         dispatch(getDogTemperament())

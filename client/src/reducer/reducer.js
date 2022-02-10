@@ -31,6 +31,24 @@ function rootReducer(state = initialState, action) {
         ...state,
         dogs: weightFiltered,
       };
+
+      case 'FILTER_DOGS_BY_TEMPERAMENT':
+            const allDogs3 = state.dogs
+            const tempDogs = allDogs3.filter(dog => {
+                if(dog.temperaments){
+                    const temperament = dog.temperaments.map( dog => dog.name)
+                    return temperament.includes(action.payload)}
+                if (dog.temperament) { 
+                    return dog.temperament.includes(action.payload)
+                }
+                return null
+            })
+
+            return {
+                ...state,
+                dogs: action.payload === 'sinFiltro' ? allDogs3 : tempDogs,
+
+            }
     
 
     case "FILTER_BY_CREATED":

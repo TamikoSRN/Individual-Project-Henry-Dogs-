@@ -1,8 +1,7 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDogs, filterDogsByWeight, filterDogsByCreated, filterByName} from "../../actions/actions";
+import { getDogs, filterDogsByWeight, filterDogsByCreated, filterByName, filterDogsByTemperament, getDogTemperament} from "../../actions/actions";
 import Card from "../DogCard/DogCard";
 import "./Home.css"
 import Pagination from "../Pagination/Pagination";
@@ -12,7 +11,7 @@ export default function Home() {
 
   const dispatch = useDispatch();
   const allDogs = useSelector((state) => state.dogs);
-
+  const temperament = useSelector((state) => state.temperaments);
 
   const [currentPage, setCurrentPage] = useState(1)
   const [dogsPerPage, setDogsPerPage] = useState(8)
@@ -30,6 +29,9 @@ export default function Home() {
     dispatch(getDogs());
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(getDogTemperament());
+  }, [dispatch]);
 
   function handleSort (e){
     e.preventDefault()
@@ -50,6 +52,11 @@ export default function Home() {
   function handleFilterDogsByCreated(e){
     dispatch(filterDogsByCreated(e.target.value))
     setCurrentPage(1)
+  }
+
+  function handleFilterDogsByTemperament(e) {
+    e.preventDefault();
+    dispatch(filterDogsByTemperament(e.target.value));
   }
 
   
@@ -81,10 +88,14 @@ export default function Home() {
             <option value="Api">Official breeds</option>
             <option value="Created">Created breeds</option>
           </select>
+          <select onChange={(e) => handleFilterDogsByTemperament(e)}>
+            <option value="sinFiltro">Temperaments</option>
+            {temperament.map((temperament) => (
+                            <option value={temperament}>{temperament}</option>
+                        ))}
+            </select>
           <button type="submit" onClick={refreshPage} className="refresh">
-			<img className="icon" src="https://htmlacademy.ru/assets/icons/reload-6x-white.png"></img></button>
-          
-         {/* <span onClick={e => handleClick(e)} className="refresh">🔄</span> */}
+			<img className="icon" src="https://htmlacademy.ru/assets/icons/reload-6x-white.png" alt=""></img></button>
         </div>
  
 
