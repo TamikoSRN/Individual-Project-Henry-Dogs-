@@ -12,6 +12,7 @@ body{
     background-attachment: fixed;
     z-index: -1;
     margin-bottom: 0%;
+    position: fixed;
 }
 
 .card-containeer {
@@ -34,11 +35,13 @@ body{
   .naame {
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
+    width: 99%;
     text-align: center;
     color: rgb(255, 255, 255);
     font-weight: normal;
     font-style: normal;
     text-shadow: 2px 3px 4px #000000;
+    
   }
   
   
@@ -60,4 +63,9 @@ body{
     color: white;
     font-family: Arial;
     text-shadow: 2px 2px 4px #000000;
+  }
+
+  .loadingScreenDetail{
+    position: relative;
+    top: 200px;
   }

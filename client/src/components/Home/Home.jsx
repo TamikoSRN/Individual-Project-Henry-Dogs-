@@ -26,12 +26,6 @@ export default function Home() {
     setCurrentPage(numberOfPage)
   }
 
-  const handleClick = (e) => {
-    e.preventDefault()
-    dispatch(getDogs())
-  }
-
-
   useEffect(() => {
     dispatch(getDogs());
   }, [dispatch]);
@@ -57,7 +51,16 @@ export default function Home() {
     dispatch(filterDogsByCreated(e.target.value))
     setCurrentPage(1)
   }
+
   
+  function refreshPage() {
+    window.location.reload(false);
+  }
+  
+  // const handleClick = (e) => {
+  //   e.preventDefault()
+  //   dispatch(getDogs())
+  // }
 
 
   return (
@@ -78,9 +81,12 @@ export default function Home() {
             <option value="Api">Official breeds</option>
             <option value="Created">Created breeds</option>
           </select>
+          <button type="submit" onClick={refreshPage} className="refresh">
+			<img className="icon" src="https://htmlacademy.ru/assets/icons/reload-6x-white.png"></img></button>
+          
+         {/* <span onClick={e => handleClick(e)} className="refresh">🔄</span> */}
         </div>
  
-   <h1 onClick={e => handleClick(e)}>🔄</h1>
 
   <div className="positions">
       {currentDogs?.map((e) => {

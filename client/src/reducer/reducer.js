@@ -31,7 +31,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         dogs: weightFiltered,
       };
-
+    
 
     case "FILTER_BY_CREATED":
       const allDogs2 = state.dogsAll;

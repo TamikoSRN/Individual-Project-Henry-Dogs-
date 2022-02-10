@@ -6,7 +6,7 @@ import LandingPage from "../components/LandingPage/LandingPage";
 // import Nav from "./components/NavBar/navBar";
 import "./app.css";
 import HomeRouter from "../router/homeRouter";
-import DogCreate from "../components/CreateDog/CreateDog"
+import DogCreate from "../components/CreateDog/CreateDog";
 
 function App() {
   return (
@@ -15,7 +15,6 @@ function App() {
         <Route exact path="/" element={<LandingPage />} />
         <Route path="/dog" element={<DogCreate />} />
         <Route path="/*" element={<HomeRouter />} />
-        
       </Routes>
     </>
   );
