@@ -16,45 +16,20 @@ function rootReducer(state = initialState, action) {
 
       
     case "FILTER_BY_WEIGHT":
-      function sortA(a) {
-        let weightSortA = a.weight.split("-");
-        if (weightSortA[0] && weightSortA[1]) {
-          let sumWeight =
-            parseInt(weightSortA[0].trim()) + parseInt(weightSortA[1].trim());
-          return sumWeight / 2;
-        } else {
-          return parseInt(weightSortA[0].trim());
-        }
-      }
-      function sortB(b) {
-        let weightSortB = b.weight.split("-");
-        if (weightSortB[0] && weightSortB[1]) {
-          let sumWeight =
-            parseInt(weightSortB[0].trim()) + parseInt(weightSortB[1].trim());
-          return sumWeight / 2;
-        } else {
-          return parseInt(weightSortB[0].trim());
-        }
-      }
-
-      let dogsWeight 
-
-      if (action.payload === "AllWeights") {
-        dogsWeight = state.dogs;
-      }
-      if (action.payload === "HeavyWeight") {
-        dogsWeight = state.dogs.sort(function (a, b) {
-          return sortA(b) - sortB(a);
-        });
-      }
-      if (action.payload === "LightWeight") {
-        dogsWeight = state.dogs.sort(function (a, b) {
-          return sortB(a) - sortA(b);
-        });
+       let weightFiltered = [...state.dogs]
+        if(action.payload === "LightWeight") {
+          weightFiltered.sort((a, b) => {                        
+                return parseInt(a.weight) - parseInt(b.weight);
+            });
+        } 
+        if(action.payload === "HeavyWeight") {
+          weightFiltered.sort((a, b) => {                        
+                return parseInt(b.weight) - parseInt(a.weight);
+            });
       }
       return {
         ...state,
-        dogs: dogsWeight,
+        dogs: weightFiltered,
       };
 
 

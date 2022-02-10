@@ -1,0 +1,63 @@
+body{
+    margin: 0;
+}
+
+.wallpapeerr{
+    background-image: url("../img/blueEyesDoggo.jpg");
+    filter: grayscale(5%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    z-index: -1;
+    margin-bottom: 0%;
+}
+
+.card-containeer {
+    display: flex;
+    position: fixed;
+    left: 720px;
+    top: 183.5px;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(6px);
+    width: 25%;
+    height: 65%;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    margin-bottom: 20%;
+    border-radius: 20px;
+    border: 2px solid rgb(0, 0, 0);
+  }
+  
+  .naame {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: 2px 3px 4px #000000;
+  }
+  
+  
+  .card-conteent {
+    margin: 15px;
+    margin-top: 0.5rem;
+  }
+  
+  .temperameents {
+    text-align: center;
+    color: rgb(238, 236, 236);
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px #000000;
+  }
+  
+  .heightAndWeightAndSpan {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: Arial;
+    text-shadow: 2px 2px 4px #000000;
+  }

@@ -26,6 +26,10 @@ export default function Home() {
     setCurrentPage(numberOfPage)
   }
 
+  const handleClick = (e) => {
+    e.preventDefault()
+    dispatch(getDogs())
+  }
 
 
   useEffect(() => {
@@ -55,6 +59,7 @@ export default function Home() {
   }
   
 
+
   return (
 <div className="doggos">
 
@@ -75,6 +80,7 @@ export default function Home() {
           </select>
         </div>
  
+   <h1 onClick={e => handleClick(e)}>🔄</h1>
 
   <div className="positions">
       {currentDogs?.map((e) => {

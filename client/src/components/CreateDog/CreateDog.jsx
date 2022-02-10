@@ -191,13 +191,6 @@ export default function DogCreate(){
                     <button type="submit" className="createDogButton">Create Dog</button>
                     </div>
             </form>
-
-            {input.temperament.map(el =>
-                <div>
-                    <p>{el}</p>
-                    <button onClick={() => handleDelete(el)}>x</button>
-                </div>
-                )}
             </div>
         </div>
     )

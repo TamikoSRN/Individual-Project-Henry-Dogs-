@@ -11,6 +11,7 @@
   position: fixed;
   overflow: hidden;
   border: 0;
+
 }
 
 .buttonn {
@@ -53,35 +54,34 @@
 
 .titlee {
   position: relative;
-  bottom: 450px;
-  left: 204.5px;
+  left: 198px;
+  bottom: 448px;
   color: rgb(233, 231, 231);
   font-family: "Playfair Display", serif;
   font-size: 40px;
   text-decoration: none;
+  display:block
 }
 
 .card-containerr {
   position: relative;
-  right: 250px;
-  top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  top: 20px;
+  right: 260px;
   backdrop-filter: blur(6px);
-  height: 83vh;
+  height: 87vh;
   width: 50vh;
   box-shadow: 0px 0px 15px -5px;
   border-radius: 20px;
   border: 0px solid rgb(0, 0, 0);
+  display:block
 }
 
 .breed {
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
-  top: 28px;
-  right: 2px;
+  left: 130px;
   width: 11rem;
   height: 5rem;
   margin: 1rem;
@@ -111,6 +111,9 @@
 .minHeight {
   display: flex;
   justify-content: center;
+  position: relative;
+  left: 130px;
+  top: 5px;
   width: 11rem;
   height: 5rem;
   margin: 1rem;
@@ -140,6 +143,9 @@
 .maxHeight {
   display: flex;
   justify-content: center;
+  position: relative;
+  left: 130px;
+  top: 15px;
   width: 11rem;
   height: 5rem;
   margin: 1rem;
@@ -169,6 +175,9 @@
 .minWeight {
   display: flex;
   justify-content: center;
+  position: relative;
+  left: 130px;
+  top: 25px;
   width: 11rem;
   height: 5rem;
   margin: 1rem;
@@ -197,7 +206,11 @@
 
 .maxWeight {
   display: flex;
+  /* white-space: nowrap; */
   justify-content: center;
+  position: relative;
+  left: 130px;
+  top: 35px;
   width: 11rem;
   height: 5rem;
   margin: 1rem;
@@ -227,6 +240,9 @@
 .lifeSpan {
   display: flex;
   justify-content: center;
+  position: relative;
+  left: 130px;
+  top: 38px;
   width: 11rem;
   height: 5rem;
   margin: 1rem;
@@ -257,13 +273,15 @@
 .picture {
   display: flex;
   justify-content: center;
+  position: relative;
+  left: 130px;
+  top: 58px;
   width: 11rem;
   height: 5rem;
   margin: 1rem;
   font-size: 2rem;
   text-align: center;
   position: relative;
-  top: 10px;
   color: rgb(223, 223, 223);
   text-shadow: 2px 3px 4px #000000;
 }
@@ -287,8 +305,8 @@
 
 .createDogButton {
   position: relative;
-  left: 35px;
-  bottom: 22px;
+  left: 167px;
+  top: 5px;
   color: #090909;
   padding: 0.7em 1.7em;
   font-size: 18px;
@@ -310,13 +328,12 @@
 }
 
 .listTemps {
-  text-align: center;
+
   position: relative;
-  bottom: 32px;
-  left: 15px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  width: 90%;
+  top: 15px;
+  margin-bottom: 20px;
+  left: 150px;
+  width: 40%;
   border-top: none;
   border-right: none;
   border-left: none;
@@ -327,13 +344,13 @@
   cursor: pointer;
   text-transform: uppercase;
   text-shadow: 1px 2px 2px #959191;
+  
 }
 
 .temperamentsItems {
   display: flex;
-  justify-content: center;
   position: relative;
-  bottom: 35px;
+  bottom: 10px;
   color: rgb(255, 255, 255);
   text-shadow: 2px 2px 2px #000000;
 }
