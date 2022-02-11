@@ -305,7 +305,7 @@
 
 .createDogButton {
   position: relative;
-  left: 167px;
+  left: 168.5px;
   top: 5px;
   color: #090909;
   padding: 0.7em 1.7em;
@@ -328,11 +328,11 @@
 }
 
 .listTemps {
-
+  text-align: center;
   position: relative;
-  top: 15px;
+  top: 19px;
   margin-bottom: 20px;
-  left: 150px;
+  left: 145px;
   width: 40%;
   border-top: none;
   border-right: none;
@@ -343,14 +343,15 @@
   margin-inline-start: 3px;
   cursor: pointer;
   text-transform: uppercase;
-  text-shadow: 1px 2px 2px #959191;
+  background-color: #f3e2be;
+  
   
 }
 
 .temperamentsItems {
   display: flex;
   position: relative;
-  bottom: 10px;
+  bottom: 6px;
   color: rgb(255, 255, 255);
   text-shadow: 2px 2px 2px #000000;
 }

@@ -5,6 +5,7 @@ import { getDogs, filterDogsByWeight, filterDogsByCreated, filterByName, filterD
 import Card from "../DogCard/DogCard";
 import "./Home.css"
 import Pagination from "../Pagination/Pagination";
+import LoadingScreen from "../LoadingScreen/Loading";
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
   const allDogs = useSelector((state) => state.dogs);
   const temperament = useSelector((state) => state.temperaments);
 
+  const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
   const [dogsPerPage, setDogsPerPage] = useState(8)
   const [peso, setPeso] = useState("")
@@ -70,8 +72,13 @@ export default function Home() {
   // }
 
 
+
+
   return (
-<div className="doggos">
+    <>
+    {loading === true ? <LoadingScreen setLoading={setLoading} /> : 
+    
+    <div className="doggos">
 
 <div className="lists">
           <select className="listAlpha" onChange={e => handleSort(e)}>
@@ -88,8 +95,8 @@ export default function Home() {
             <option value="Api">Official breeds</option>
             <option value="Created">Created breeds</option>
           </select>
-          <select onChange={(e) => handleFilterDogsByTemperament(e)}>
-            <option value="sinFiltro">Temperaments</option>
+          <select onChange={(e) => handleFilterDogsByTemperament(e)} className="listAlpha">
+            <option value="Temps">Temperaments</option>
             {temperament.map((temperament) => (
                             <option value={temperament}>{temperament}</option>
                         ))}
@@ -123,7 +130,8 @@ export default function Home() {
   allDogs={allDogs.length}
   pagination={pagination}
   /> 
-
-</div>
+  </div>
+    }
+    </>
   );
 }

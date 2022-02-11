@@ -46,7 +46,7 @@ function rootReducer(state = initialState, action) {
 
             return {
                 ...state,
-                dogs: action.payload === 'sinFiltro' ? allDogs3 : tempDogs,
+                dogs: action.payload === 'Temps' ? allDogs3 : tempDogs,
 
             }
     

@@ -1,14 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 import { useEffect } from "react";
 import {useParams} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../../actions/actions";
 import "./DogDetail.css"
-import bg from "../img/blueEyesDoggo.jpg"
+import LoadingScreen from "../LoadingScreen/Loading";
 
 export default function Detail(){
     const dispatch = useDispatch()
     const {id} = useParams()
+
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         dispatch(getDetail(id))
@@ -17,9 +19,11 @@ export default function Detail(){
     const selectedDog = useSelector(state => state.detail)
 
     return (
+        <>
+          <div className="wallpapeerr" />
         <div>
             {
-                selectedDog.length > 0 ?
+                selectedDog.length > 0 && loading !== true? 
                 <div className="card-containeer">
                     <div className="wallpapeerr">
                     <h1 className="naame">Breed's name: {selectedDog[0].name}</h1>
@@ -29,11 +33,9 @@ export default function Detail(){
                     <h3 className="heightAndWeightAndSpan">Breed's Height: {selectedDog[0].height} cm</h3>
                     <h4 className="heightAndWeightAndSpan">Breed's life span: {selectedDog[0].lifeSpan}</h4>
                 </div>
-                </div> : <p>Loading...</p>
-            }
-            <div className="wallpapeerr">
-            <img src={bg} alt=""></img>
-            </div>
+            </div> : <LoadingScreen setLoading={setLoading} /> }
         </div>
-    )
+            
+        </>
+            )
 }
