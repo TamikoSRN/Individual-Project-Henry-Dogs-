@@ -31,7 +31,7 @@ export default function Detail(){
                     <h2 className="temperameents">Breed's temperaments: {!selectedDog[0].createdAtDb ? selectedDog[0].temperament : selectedDog[0].temperaments.map(e => e.name + (", ") ) }</h2>
                     <h3 className="heightAndWeightAndSpan">Breed's weight: {selectedDog[0].weight} kg</h3>
                     <h3 className="heightAndWeightAndSpan">Breed's Height: {selectedDog[0].height} cm</h3>
-                    <h4 className="heightAndWeightAndSpan">Breed's life span: {selectedDog[0].lifeSpan}</h4>
+                    <h4 className="heightAndWeightAndSpan">Breed's life span: {selectedDog[0].lifeSpan} years</h4>
                 </div>
             </div> : <LoadingScreen setLoading={setLoading} /> }
         </div>

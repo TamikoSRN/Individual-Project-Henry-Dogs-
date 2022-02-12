@@ -33,7 +33,7 @@ function rootReducer(state = initialState, action) {
       };
 
       case 'FILTER_DOGS_BY_TEMPERAMENT':
-            const allDogs3 = state.dogs
+            const allDogs3 = state.dogsAll
             const tempDogs = allDogs3.filter(dog => {
                 if(dog.temperaments){
                     const temperament = dog.temperaments.map( dog => dog.name)

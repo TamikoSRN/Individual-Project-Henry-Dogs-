@@ -1,15 +1,16 @@
-.fouGif{
-    position: absolute;
-    bottom: 400px;
-    left: 860px;
+.fouGif {
+  position: absolute;
+  bottom: 400px;
+  left: 860px;
+  z-index: 1000;
 }
 
-.numerito{
-    display: none;
+.numerito {
+  display: none;
 }
 
-.woorupape{
-    background-color: rgb(37, 50, 58);
+.woorupape {
+  background-color: rgb(29, 40, 46);
   background-size: cover;
   width: 100%;
   height: 100%;
@@ -17,4 +18,5 @@
   position: fixed;
   background-attachment: fixed;
   border: 0;
+  z-index: 1;
 }

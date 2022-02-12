@@ -11,18 +11,17 @@
   position: fixed;
   overflow: hidden;
   border: 0;
-
 }
 
 .buttonn {
   display: flex;
   align-items: center;
-  position: relative;
   justify-content: center;
-  bottom: 450px;
-  right: 442px;
-  height: 40px;
+  position: relative;
+  bottom: 445px;
+  right: 638px;
   width: 90px;
+  height: 40px;
   border-radius: 3px;
   letter-spacing: 1px;
   background: #fff;
@@ -54,37 +53,35 @@
 
 .titlee {
   position: relative;
-  left: 198px;
-  bottom: 448px;
+  bottom: 90px;
   color: rgb(233, 231, 231);
   font-family: "Playfair Display", serif;
-  font-size: 40px;
+  font-size: 38px;
   text-decoration: none;
-  display:block
 }
 
 .card-containerr {
-  position: relative;
-  top: 20px;
-  right: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   backdrop-filter: blur(6px);
-  height: 87vh;
-  width: 50vh;
+  height: 95%;
+  width: 27%;
   box-shadow: 0px 0px 15px -5px;
   border-radius: 20px;
   border: 0px solid rgb(0, 0, 0);
-  display:block
+  position: relative;
+  right: 40px;
 }
 
 .breed {
+  position: relative;
+  bottom: 85px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
-  left: 130px;
-  width: 11rem;
-  height: 5rem;
-  margin: 1rem;
   font-size: 2rem;
   text-align: center;
   color: rgb(223, 223, 223);
@@ -92,10 +89,8 @@
 }
 
 .breedInput {
-  height: 30px;
-  margin-left: 22px;
-  position: relative;
-  top: 6px;
+  margin-left: 12px;
+  text-align: center;
   background-color: rgb(230, 228, 228);
   border: 0;
   border-top-right-radius: 10px;
@@ -103,20 +98,18 @@
   border-bottom-right-radius: 3px;
   border-top-left-radius: 0px;
   font-size: 18px;
-  padding: 15px;
   height: 30px;
-  width: 215px;
+  width: 200px;
 }
 
 .minHeight {
-  display: flex;
-  justify-content: center;
   position: relative;
-  left: 130px;
-  top: 5px;
-  width: 11rem;
+  bottom: 65px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   height: 5rem;
-  margin: 1rem;
   font-size: 2rem;
   text-align: center;
   color: rgb(223, 223, 223);
@@ -124,42 +117,39 @@
 }
 
 .minHeightInput {
-  height: 30px;
-  margin-left: 16px;
-  position: relative;
-  top: 41px;
+  display: flex;
+  text-align: center;
+  margin-left: 12px;
   background-color: rgb(230, 228, 228);
   border: 0;
   border-top-right-radius: 10px;
-  border-top-left-radius: 0px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 3px;
+  border-top-left-radius: 0px;
   font-size: 18px;
-  padding: 15px;
   height: 30px;
-  width: 215px;
+  width: 200px;
 }
 
 .maxHeight {
-  display: flex;
-  justify-content: center;
   position: relative;
-  left: 130px;
-  top: 15px;
-  width: 11rem;
-  height: 5rem;
-  margin: 1rem;
-  font-size: 2rem;
+  bottom: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   text-align: center;
+  justify-content: center;
+  height: 5rem;
+  font-size: 2rem;
   color: rgb(223, 223, 223);
   text-shadow: 2px 3px 4px #000000;
 }
 
 .maxHeightInput {
-  height: 30px;
-  margin-left: 16px;
-  position: relative;
-  top: 41px;
+  margin-left: 12px;
+  text-align: center;
+  /* position: relative;
+  top: 41px; */
   background-color: rgb(230, 228, 228);
   border: 0;
   border-top-right-radius: 10px;
@@ -167,20 +157,18 @@
   border-bottom-right-radius: 3px;
   border-top-left-radius: 0px;
   font-size: 18px;
-  padding: 15px;
   height: 30px;
-  width: 215px;
+  width: 200px;
 }
 
 .minWeight {
-  display: flex;
-  justify-content: center;
   position: relative;
-  left: 130px;
-  top: 25px;
-  width: 11rem;
+  bottom: 35px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   height: 5rem;
-  margin: 1rem;
   font-size: 2rem;
   text-align: center;
   color: rgb(223, 223, 223);
@@ -188,10 +176,9 @@
 }
 
 .minWeightInput {
-  height: 30px;
-  margin-left: 11px;
+  margin-left: 12px;
+  text-align: center;
   position: relative;
-  top: 41px;
   background-color: rgb(230, 228, 228);
   border: 0;
   border-top-right-radius: 10px;
@@ -199,21 +186,18 @@
   border-bottom-right-radius: 3px;
   border-top-left-radius: 0px;
   font-size: 18px;
-  padding: 15px;
   height: 30px;
-  width: 215px;
+  width: 200px;
 }
 
 .maxWeight {
-  display: flex;
-  /* white-space: nowrap; */
-  justify-content: center;
   position: relative;
-  left: 130px;
-  top: 35px;
-  width: 11rem;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   height: 5rem;
-  margin: 1rem;
   font-size: 2rem;
   text-align: center;
   color: rgb(223, 223, 223);
@@ -221,10 +205,8 @@
 }
 
 .maxWeightInput {
-  height: 30px;
   margin-left: 12px;
-  position: relative;
-  top: 41px;
+  text-align: center;
   background-color: rgb(230, 228, 228);
   border: 0;
   border-top-right-radius: 10px;
@@ -232,32 +214,27 @@
   border-bottom-right-radius: 3px;
   border-top-left-radius: 0px;
   font-size: 18px;
-  padding: 15px;
   height: 30px;
-  width: 215px;
+  width: 200px;
 }
 
 .lifeSpan {
-  display: flex;
-  justify-content: center;
   position: relative;
-  left: 130px;
-  top: 38px;
-  width: 11rem;
-  height: 5rem;
-  margin: 1rem;
-  font-size: 2rem;
+  bottom: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
+  height: 5rem;
+  font-size: 2rem;
   color: rgb(223, 223, 223);
   text-shadow: 2px 3px 4px #000000;
 }
 
 .lifeSpanInput {
-  height: 30px;
-  margin-left: 16px;
-  position: relative;
-  top: 41px;
-  left: 12px;
+  margin-left: 12px;
+  text-align: center;
   background-color: rgb(230, 228, 228);
   border: 0;
   border-top-right-radius: 10px;
@@ -265,32 +242,27 @@
   border-bottom-right-radius: 3px;
   border-top-left-radius: 0px;
   font-size: 18px;
-  padding: 15px;
   height: 30px;
-  width: 215px;
+  width: 200px;
 }
 
 .picture {
+  position: relative;
+  top: 10px;
   display: flex;
+  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  position: relative;
-  left: 130px;
-  top: 58px;
-  width: 11rem;
-  height: 5rem;
-  margin: 1rem;
-  font-size: 2rem;
   text-align: center;
-  position: relative;
+  height: 5rem;
+  font-size: 2rem;
   color: rgb(223, 223, 223);
   text-shadow: 2px 3px 4px #000000;
 }
 
 .pictureInput {
-  height: 30px;
   margin-left: 12px;
-  position: relative;
-  top: 6px;
+  text-align: center;
   background-color: rgb(230, 228, 228);
   border: 0;
   border-top-right-radius: 10px;
@@ -298,60 +270,101 @@
   border-bottom-right-radius: 3px;
   border-top-left-radius: 0px;
   font-size: 18px;
-  padding: 15px;
   height: 30px;
-  width: 215px;
+  width: 200px;
 }
 
 .createDogButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 30px;
+  border: 2px solid rgb(136, 131, 131);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #000;
+  /* -webkit-box-reflect: below 0px linear-gradient(transparent, #0002); */
+  transition: 0.5s;
+  border-radius: 9px;
   position: relative;
-  left: 168.5px;
-  top: 5px;
-  color: #090909;
-  padding: 0.7em 1.7em;
-  font-size: 18px;
-  border-radius: 0.5em;
-  background: #ececec;
-  border: 1px solid #e8e8e8;
-  transition: all 0.2s;
-  box-shadow: 2px 2px 4px #c5c5c5, -3px -3px 6px #ffffff;
-  cursor: pointer;
+  left: 117px;
+  top: 33px;
 }
 
-.createDogButton:hover {
-  border: 1px solid white;
-}
 
 .createDogButton:active {
   background-color: rgb(245, 245, 245);
   transform: translateY(1px);
+
 }
 
 .listTemps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  position: relative;
-  top: 19px;
-  margin-bottom: 20px;
-  left: 145px;
-  width: 40%;
+  text-align: center;
   border-top: none;
   border-right: none;
   border-left: none;
   border-bottom: none;
-  border-radius: 6px;
-  background-color: transparent;
-  margin-inline-start: 3px;
+  border-radius: 4px;
   cursor: pointer;
-  text-transform: uppercase;
-  background-color: #f3e2be;
-  
-  
+  background-color: transparent;
+  font-size: 18px;
+  text-transform: capitalize;
+  position: relative;
+  left: 108px;
+  top: 25px;
 }
 
 .temperamentsItems {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   position: relative;
-  bottom: 6px;
+  right: 22px;
   color: rgb(255, 255, 255);
   text-shadow: 2px 2px 2px #000000;
+  position: relative;
+  top: 25px;
+}
+
+.error {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(219, 216, 0);
+}
+
+.refreshh {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: none;
+  position: relative;
+  bottom: 435px;
+  left: 560px;
+  cursor: pointer;
+  font-size: 28px;
+  width: 2%;
+  background-color: transparent;
+  z-index: 1;
+}
+
+.refreshh .icon {
+  width: 21px;
+  height: 21px;
+  transition: all 0.4s ease-in-out;
+}
+
+.refreshh:hover {
+  transition-delay: 0s;
+}
+
+.refreshh:hover .icon {
+  transform: rotate(360deg) scale(1);
 }

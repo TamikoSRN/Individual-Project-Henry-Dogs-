@@ -86,7 +86,7 @@ export default function Home() {
             <option value="Desc"> Z-A </option>
           </select>
           <select className="listAlpha" onChange={e => handleFilterDogsByWeight(e)}>
-            <option value="AllWeights">Unordered Weights</option>
+            <option hidden="AllWeights">Unordered Weights</option>
             <option value="HeavyWeight">Heaviest breeds</option>
             <option value="LightWeight">Lightest breeds</option>
           </select>

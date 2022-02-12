@@ -4,7 +4,7 @@
   height: 100px;
   position: absolute;
   width: 100%;
-  z-index: 100;
+  z-index: 1;
 }
 
 .title {
@@ -49,10 +49,10 @@
 
 .Creation {
   display: flex;
-  justify-content: center;
+  justify-content: right;
   position: relative;
   font-size: 25px;
-  left: 1315px;
+  left: 1306px;
   bottom: 83px;
   color: rgb(233, 231, 231);
   font-family: "Playfair Display", serif;
