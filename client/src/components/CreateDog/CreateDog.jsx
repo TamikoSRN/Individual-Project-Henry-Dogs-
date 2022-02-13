@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import { Link, Navigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import {getDogTemperament, postDog} from "../../actions/actions"
 import "./CreateDog.css"
@@ -46,6 +46,7 @@ export default function DogCreate(){
     const temperament = useSelector((state) => state.temperaments)
     const [errors, setErrors] = useState ({})
 
+
     const [input, setInput] = useState({
         name: "",
         minimHeight: "", 
@@ -70,6 +71,7 @@ export default function DogCreate(){
             temperament: [...input.temperament, e.target.value]
         })
     }
+    const navigate = useNavigate()
 
     function handleSubmit(e){
         e.preventDefault()
@@ -79,6 +81,7 @@ export default function DogCreate(){
             alert("Please, fulfill ALL of the required camps in the form")
         } else {
             dispatch(postDog(input))
+            navigate("/home")
         alert("Dog created successfully!")
         setInput({
             name: "",
