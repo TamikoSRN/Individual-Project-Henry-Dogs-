@@ -16,6 +16,10 @@ export default function SearchBar({placeholder}){
     function handleSubmit(e){
         e.preventDefault()
         dispatch(getDogsName(name))
+        // if(getDogsName(name) !== name){
+        //     alert("Your searched dog's breed does not exist!")
+        // }
+        setName('')
     }
 
     return (
@@ -23,6 +27,7 @@ export default function SearchBar({placeholder}){
             <div className="searchInputs">
                 <input type="text"
                 placeholder = {placeholder}
+                value={name}
                 onChange={(e) => handleInputChange(e)}
                 />
                 <div className="searchIcon">

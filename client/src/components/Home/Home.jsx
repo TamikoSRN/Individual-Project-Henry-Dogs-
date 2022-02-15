@@ -23,10 +23,6 @@ export default function Home() {
   const indexOfFirstDog = indexOfLastDog - dogsPerPage
   const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog)
 
-  const pagination = (numberOfPage) => {
-    setCurrentPage(numberOfPage)
-  }
-
   useEffect(() => {
     dispatch(getDogs());
   }, [dispatch]);
@@ -34,6 +30,12 @@ export default function Home() {
   useEffect(() => {
     dispatch(getDogTemperament());
   }, [dispatch]);
+
+  
+  const pagination = (numberOfPage) => {
+    setCurrentPage(numberOfPage)
+  }
+
 
   function handleSort (e){
     e.preventDefault()
@@ -82,6 +84,7 @@ export default function Home() {
 
 <div className="lists">
           <select className="listAlpha" onChange={e => handleSort(e)}>
+            <option hidden="all">A-Z</option>
             <option value="Asc"> A-Z </option>
             <option value="Desc"> Z-A </option>
           </select>
@@ -91,6 +94,7 @@ export default function Home() {
             <option value="LightWeight">Lightest breeds</option>
           </select>
           <select className="listAlpha" onChange={(e)=> handleFilterDogsByCreated(e)}>
+            <option hidden="Alll">All existent breeds</option>
             <option value="AllDogs">All existent breeds</option>
             <option value="Api">Official breeds</option>
             <option value="Created">Created breeds</option>

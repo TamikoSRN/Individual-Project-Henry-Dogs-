@@ -2,43 +2,40 @@ const { API_KEY } = process.env;
 const axios = require("axios");
 const { Temperament } = require("../db");
 
+
 const getTemperament = async () => {
-  var dataTemperament = false;
-  if (!dataTemperament) {
-    dataTemperament = true;
+
 
     let api = await axios.get(
       `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
     );
 
-    let dogTemperament = await api.data
-      .map((temp) => {
-        if (temp.temperament) {
-          return temp.temperament;
+    let dogTemperament = await api.data.map((obj) => {
+        if (obj.temperament) {
+          return obj.temperament;
         }
-      })
-      .join()
-      .split(",");
-    // acá se crea un array con todos los temperamentos de los perros de la api
+      }).join().split(",");
+    // Mapeo todos los temperamentos de los perros de la api a un nuevo array.
 
-    let temps = []; //declaro un array vacio donde estaran todos los temps
+    let temps = []; 
+    //Creo un array vacio donde van a estar todos los temps despues de "filtrarlos"
 
-    dogTemperament.map((c) => {
-      if (!temps.includes(c.trim()) && c) {
-        temps.push(c.trim());
+    dogTemperament.map((temp) => {
+      if (!temps.includes(temp.trim()) && temp) {
+        temps.push(temp.trim());
       }
-    }); //pusheo los temperamentos sin los espacios y sin repetir
+    }); 
+    //Pusheo los temperamentos sin los espacios y sin repetir, cosa que sean los no repetidos los que queden
 
-    temps.map(async (c) => {
+    temps.map(async (temp) => {
       await Temperament.findOrCreate({
-        where: { name: c },
+        where: { 
+          name: temp 
+        },
       });
-    }); // aca creo cada temperamento en la tabla
-
-  } else {
-    console.log("Ya se encuentra todo cargado en la DB");
+    }); 
+    //Aca creo cada temperamento en la tabla una vez abra la lista.
   }
-};
 
 module.exports = {
   getTemperament,

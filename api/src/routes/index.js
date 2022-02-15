@@ -2,7 +2,6 @@ require("dotenv").config();
 const { Router } = require("express");
 const { Dog, Temperament } = require("../db");
 const { getAllBreeds } = require("../controllers/dogs");
-const { getTemperament } = require("../controllers/temperament");
 
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
@@ -13,17 +12,19 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 
-router.get("/dogs", async (req, res) => {
-  const {name} = req.query;
-  let totalBreeds = await getAllBreeds();
+// router.get("/dogs", async (req, res) => {
+//   let totalBreeds = await getAllBreeds();
+//     res.status(200).send(totalBreeds);
+// })
 
+
+router.get("/dogs", async (req, res) => {
+  let totalBreeds = await getAllBreeds();
+  
+  const {name} = req.query;
   if (name) {
-    let dogBreed = await totalBreeds.filter((el) =>
-      el.name.toLowerCase().includes(name.toLowerCase())
-    );
-    dogBreed.length
-      ? res.status(200).send(dogBreed)
-      : res.status(404).send("404 Breed Not Found :("); 
+    let dogBreed = await totalBreeds.filter((obj) => obj.name.toLowerCase().includes(name.toLowerCase()));
+    dogBreed.length ? res.status(200).send(dogBreed) : res.status(404).send("404 Breed Not Found :("); 
   } else {
     res.status(200).send(totalBreeds);
   }
@@ -34,7 +35,7 @@ router.get("/dogs/:id", async (req, res) => {
   const { id } = req.params;
   if (id) {
       const allBreeds = await getAllBreeds();
-      let dogId = await allBreeds.filter((e) => e.id == id);
+      let dogId = await allBreeds.filter((obj) => obj.id == id);
       dogId.length
         ? res.status(200).send(dogId)
         : res.status(404).send("Doggo Not Found");
@@ -42,19 +43,24 @@ router.get("/dogs/:id", async (req, res) => {
 });
 
 
+// router.get("/dogs/:id", async (req, res) => {
+//   const { id } = req.params
+//   if (id) {
+//     let dogId = await Dog.findByPk(id)
+//     ? res.status(200).send(dogId)
+//     : res.status(404).send("Doggo not Found")
+//   }
+// })
+// no puedo hacer esto porque estoy buscando en el modelo Dog una id que no coincide a ninguna otra
+// ya que a la db solo voy a estar cargando perros con una UUID. findByPk se fija en el modelo, y no va a encontrar nada
+// que no sea una uuid
+
 router.get("/temperament", async (req, res) => {
-
-  try {
-    const dogTemperaments = await getTemperament();
-    console.log(dogTemperaments);
-
+  
     const allTemperaments = await Temperament.findAll();
-    const filteredTemperaments = await allTemperaments.map((e) => e.name);
+    const filteredTemperaments = await allTemperaments.map((obj) => obj.name);
 
     res.status(200).send(filteredTemperaments);
-  } catch (err) {
-    console.log(err);
-  }
 });
 
 
@@ -85,10 +91,15 @@ let weight = minimWeight + " - " + maximWeight
   })
 
   let temperamentDb = await Temperament.findAll({
-    where: { name : temperament }
+
+    where: { 
+      name : temperament
+    }
   })
+
   dogCreated.addTemperament(temperamentDb)
   res.status(200).send("Perrito creado :D")
+
 
 //   let { dog, temperament } = req.body;
 
@@ -99,7 +110,6 @@ let weight = minimWeight + " - " + maximWeight
 //       name: temperament
 //     }
 //   });
-//   console.log(temperamentDb)
 //   dogCreated.addTemperament(temperamentDb);
 //   res.status(200).send("Perrito creado :D");
 });

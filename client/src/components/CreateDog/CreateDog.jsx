@@ -13,24 +13,31 @@ const validate = function(input){
     if (!input.name){
         errors.name = "Completing with a *BREED'S NAME* is required!"
     }
-     if (!input.minimHeight) {
-        errors.minimHeight = "Completing with a *MINIMAL HEIGHT* is required!"
-    }
-     if (!input.maximHeight) {
-        errors.maximHeight = "Completing with a *MAXIMAL HEIGHT* is required!"
-    }
-     if  (!input.minimWeight) {
-        errors.minimWeight = "Completing with a *MINIMAL WEIGHT* is required!"
-    }
-     if (!input.maximWeight) {
-        errors.maximWeight = "Completing with a *MAXIMAL HEIGHT* is required!"
-    }
     if (input.minimHeight > input.maximHeight){
         errors.minimHeight = "*MIN HEIGHT* must not surmount the *MAX HEIGHT* value!"
     }
     if (input.minimWeight > input.maximWeight){
         errors.minimWeight = "*MIN WEIGHT* must not surmount the *MAX WEIGHT* value!"
     }
+    if (input.minimHeight <= 10){
+        errors.minimHeight = "*MIN HEIGHT* should be higher than 10 CM!" 
+    }
+    if (input.maximWeight <= 2){
+        errors.maximWeight = "*MAX WEIGHT* should be higher than 2 KG!" 
+    }
+    if (!input.minimHeight) {
+       errors.minimHeight = "Completing with a *MINIMAL HEIGHT* is required!"
+   }
+    if (!input.maximHeight) {
+       errors.maximHeight = "Completing with a *MAXIMAL HEIGHT* is required!"
+   }
+    if  (!input.minimWeight) {
+       errors.minimWeight = "Completing with a *MINIMAL WEIGHT* is required!"
+   }
+    if (!input.maximWeight) {
+       errors.maximWeight = "Completing with a *MAXIMAL HEIGHT* is required!"
+   }
+
     if (input.lifeSpan < 0) {
         errors.lifeSpan = "A life span cannot be lower than 0!"
     }
@@ -78,7 +85,7 @@ export default function DogCreate(){
         setErrors(validate(input))
         const errorSaver = validate(input)
         if(Object.values(errorSaver).length !== 0 ) {
-            alert("Please, fulfill ALL of the required camps in the form")
+            alert("Please, fulfill ALL of the required conditions in the form so you could create your dog")
         } else {
             dispatch(postDog(input))
             navigate("/home")

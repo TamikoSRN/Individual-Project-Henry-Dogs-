@@ -7,7 +7,9 @@ export const getDogs = () => (dispatch) => {
     return fetch(url)
     .then((response) => response.json())
     .then((dogs) => {
-        dispatch({type: GET_DOGS, payload: dogs})
+        dispatch({
+            type: GET_DOGS, 
+            payload: dogs})
     })
 }
 // export function getDogs() {
@@ -25,21 +27,16 @@ export const getDogs = () => (dispatch) => {
 
 export function getDogsName(name){
     return async function (dispatch){
-        try{
             var json = await axios.get("http://localhost:3001/dogs?name=" + name)
             return dispatch({
                 type: "GET_DOGS_NAME",
                 payload: json.data
             })
-        } catch(e){
-            console.log(e)
-        }
     }
 }
 
 export function getDogTemperament(){
     return async function(dispatch){
-      
             var json = await axios.get("http://localhost:3001/temperament")
             return dispatch({
                 type: "GET_DOGS_TEMPERAMENT",
