@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { getDogsName } from "../../actions/actions";
 import "./SearchBar.css"
 
-export default function SearchBar({placeholder}){
+export default function SearchBar(){
     const dispatch = useDispatch()
     const [name, setName] = useState("")
 
@@ -15,10 +15,8 @@ export default function SearchBar({placeholder}){
 
     function handleSubmit(e){
         e.preventDefault()
-        dispatch(getDogsName(name))
-        // if(getDogsName(name) !== name){
-        //     alert("Your searched dog's breed does not exist!")
-        // }
+        dispatch(getDogsName(name)) 
+        // === name ? getDogsName(name) : alert("Your searched dog's breed does not exist!")
         setName('')
     }
 
@@ -26,7 +24,7 @@ export default function SearchBar({placeholder}){
         <div className="search">
             <div className="searchInputs">
                 <input type="text"
-                placeholder = {placeholder}
+                placeholder = "Find your doggo!"
                 value={name}
                 onChange={(e) => handleInputChange(e)}
                 />

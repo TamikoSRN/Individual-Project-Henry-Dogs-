@@ -14,7 +14,7 @@ export default function Detail(){
 
     useEffect(() => {
         dispatch(getDetail(id))
-    }, [dispatch, id])
+    }, [id])
 
     const selectedDog = useSelector(state => state.detail)
 
@@ -26,7 +26,7 @@ export default function Detail(){
                 selectedDog.length > 0 && loading !== true? 
                 <div className="card-containeer">
                     <div className="wallpapeerr">
-                    <h1 className="naame">Breed's name: {selectedDog[0].name}</h1>
+                    <h1 className="naame">{selectedDog[0].name}</h1>
                     <img src ={selectedDog[0].image} alt="" width="476px" height="300px" className="pcture"/>
                     <h2 className="temperameents">Each breed has its own way of being, which differences every dog from each other. This breed possesses the following temperaments: {!selectedDog[0].createdAtDb ? selectedDog[0].temperament : selectedDog[0].temperaments.map(e => e.name + (", ") ) }.</h2>
                     <h3 className="heightAndWeightAndSpan">Breed's weight: {selectedDog[0].weight} kg</h3>

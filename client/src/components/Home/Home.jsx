@@ -8,6 +8,8 @@ import Pagination from "../Pagination/Pagination";
 import LoadingScreen from "../LoadingScreen/Loading";
 
 
+
+
 export default function Home() {
 
   const dispatch = useDispatch();
@@ -15,33 +17,52 @@ export default function Home() {
   const temperament = useSelector((state) => state.temperaments);
 
   const [loading, setLoading] = useState(true)
-  const [currentPage, setCurrentPage] = useState(1)
-  const [dogsPerPage, setDogsPerPage] = useState(8)
+
+  const [currentPage, setCurrentPage] = useState(1) // inicio en la primer pagina
+  const [dogsPerPage, setDogsPerPage] = useState(8) // cuantas cartas muestro por pagina 
   const [peso, setPeso] = useState("")
   const [orden, setOrden] = useState("")
+
+  
   const indexOfLastDog = currentPage * dogsPerPage
   const indexOfFirstDog = indexOfLastDog - dogsPerPage
   const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog)
 
   useEffect(() => {
     dispatch(getDogs());
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     dispatch(getDogTemperament());
-  }, [dispatch]);
+  }, []);
 
   
   const pagination = (numberOfPage) => {
     setCurrentPage(numberOfPage)
   }
 
+  const lastPage = allDogs.length / dogsPerPage 
+
+  const nextPage = () => {
+    if (currentPage < lastPage) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  
+
 
   function handleSort (e){
     e.preventDefault()
     dispatch(filterByName(e.target.value))
     setCurrentPage(1)
-    setOrden(`Ordenado ${e.target.value}`)
+    setOrden(`${e.target.value}`)
   }
 
 
@@ -49,7 +70,7 @@ export default function Home() {
     e.preventDefault()
     dispatch(filterDogsByWeight(e.target.value))
     setCurrentPage(1)
-    setPeso(`Ordenado ${e.target.value}`)
+    setPeso(`${e.target.value}`)
   }
 
 
@@ -64,7 +85,7 @@ export default function Home() {
   }
 
   
-  function refreshPage() {
+  function handleClick() {
     window.location.reload(false);
   }
   
@@ -105,7 +126,7 @@ export default function Home() {
                             <option value={temperament}>{temperament}</option>
                         ))}
             </select>
-          <button type="submit" onClick={refreshPage} className="refresh">
+          <button type="submit" onClick={handleClick} className="refresh">
 			<img className="icon" src="https://htmlacademy.ru/assets/icons/reload-6x-white.png" alt=""></img></button>
         </div>
  
@@ -133,6 +154,8 @@ export default function Home() {
   dogsPerPage={dogsPerPage}
   allDogs={allDogs.length}
   pagination={pagination}
+  prevPage={prevPage}
+  nextPage={nextPage}
   /> 
   </div>
     }

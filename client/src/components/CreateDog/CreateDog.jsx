@@ -41,7 +41,7 @@ const validate = function(input){
     if (input.lifeSpan < 0) {
         errors.lifeSpan = "A life span cannot be lower than 0!"
     }
-    if (input.lifeSpan > 22){
+    if (input.lifeSpan > 21){
         errors.lifeSpan = "Please, select a reasonable life span for your dog."
     }
 
@@ -53,7 +53,7 @@ export default function DogCreate(){
     const temperament = useSelector((state) => state.temperaments)
     const [errors, setErrors] = useState ({})
 
-
+    
     const [input, setInput] = useState({
         name: "",
         minimHeight: "", 
@@ -101,14 +101,6 @@ export default function DogCreate(){
             temperament: [],
         })
         }
-        // if(input.name &&
-        //     input.minimHeight &&
-        //     input.maximHeight &&
-        //     input.minimWeight &&
-        //     input.maximWeight &&
-        //     input.lifeSpan &&
-        //     input.temperament){
-
     }
 
     // function handleDelete(el){
@@ -211,7 +203,7 @@ export default function DogCreate(){
                     <input className="lifeSpanInput"
                     type="number"
                     min="1"
-                    max="23"
+                    max="21"
                     value= {input.lifeSpan}
                     name="lifeSpan"
                     placeholder="Breed's life span"
@@ -244,7 +236,7 @@ export default function DogCreate(){
                 </div>
                     
                 <div>
-                    <button className="createDogButton" type="submit" disabled = {input < 5 || input.temperament.length < 3 || input.temperament.length >= 6 ? true : false}>Create Dog</button>
+                    <button className="createDogButton" type="submit" disabled = {input.temperament.length < 2 || input.temperament.length >= 5 ? true : false}>Create Dog</button>
                 </div>
             </form>
             </div>

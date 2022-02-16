@@ -2,7 +2,7 @@ import React from "react";
 import Fou from "../img/loading.gif";
 import "./Loading.css"
 
-const LoadingScreen = (props) => {
+export default function LoadingScreen({setLoading}) {
   return (
     <>
     <div className="woorupape" />
@@ -11,11 +11,9 @@ const LoadingScreen = (props) => {
       </div>
       <div className="numerito">
       {setTimeout(() => {
-        props.setLoading(false);
+        setLoading(false);
       }, 2000)}
       </div>
     </>
   );
 };
-
-export default LoadingScreen;

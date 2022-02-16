@@ -9,7 +9,7 @@ export default function homeRouter() {
     <div>
       <Nav brand="The Dog's Wikia" />
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route exact path="/home" element={<Home />} />
         <Route path="/home/:id" element={<DogDetail/>} />
       </Routes>
     </div>

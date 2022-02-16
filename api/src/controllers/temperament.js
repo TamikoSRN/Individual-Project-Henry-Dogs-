@@ -30,7 +30,7 @@ const getTemperament = async () => {
     temps.map(async (temp) => {
       await Temperament.findOrCreate({
         where: { 
-          name: temp 
+          name: temp
         },
       });
     }); 

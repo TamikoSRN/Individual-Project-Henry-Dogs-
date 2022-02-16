@@ -42,3 +42,36 @@
 }
 
 
+.advanceButton{
+  position: relative;
+  bottom: 180px;
+  left: 1720px;
+  height: 30px;
+  width: 65px;
+  border-radius: 17px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  color: rgb(255, 255, 255);
+  -webkit-box-reflect: below 5px linear-gradient(transparent, #0002);
+  transition: 0.3s;
+  cursor: pointer;
+  border: transparent;
+  background-color: #000000a2;
+}
+
+.backButton {
+  position: relative;
+  bottom: 180px;
+  left: 58px;
+  height: 30px;
+  width: 65px;
+  border-radius: 17px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  color: rgb(255, 255, 255);
+  -webkit-box-reflect: below 5px linear-gradient(transparent, #0002);
+  transition: 0.3s;
+  cursor: pointer;
+  border: transparent;
+  background-color: #000000a2;
+}
