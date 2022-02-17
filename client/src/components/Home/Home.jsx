@@ -12,8 +12,9 @@ import LoadingScreen from "../LoadingScreen/Loading";
 
 export default function Home() {
 
-  const dispatch = useDispatch();
-  const allDogs = useSelector((state) => state.dogs);
+  const dispatch = useDispatch(); //action
+
+  const allDogs = useSelector((state) => state.dogs); //reducer
   const temperament = useSelector((state) => state.temperaments);
 
   const [loading, setLoading] = useState(true)
@@ -24,9 +25,9 @@ export default function Home() {
   const [orden, setOrden] = useState("")
 
   
-  const indexOfLastDog = currentPage * dogsPerPage
-  const indexOfFirstDog = indexOfLastDog - dogsPerPage
-  const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog)
+  const indexOfLastDog = currentPage * dogsPerPage // 1*8
+  const indexOfFirstDog = indexOfLastDog - dogsPerPage // 8 - 8
+  const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog) // corto el array de 0 a 7
 
   useEffect(() => {
     dispatch(getDogs());
@@ -122,8 +123,8 @@ export default function Home() {
           </select>
           <select onChange={(e) => handleFilterDogsByTemperament(e)} className="listAlpha">
             <option value="Temps">Temperaments</option>
-            {temperament.map((temperament) => (
-                            <option value={temperament}>{temperament}</option>
+            {temperament.map((temp) => (
+                            <option value={temp}>{temp}</option>
                         ))}
             </select>
           <button type="submit" onClick={handleClick} className="refresh">

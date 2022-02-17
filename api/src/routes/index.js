@@ -50,7 +50,7 @@ router.post("/dog", async (req, res) => {
 
   let {
     name, 
-    minimHeight, 
+    minimHeight,
     maximHeight,
     minimWeight,
     maximWeight,
@@ -82,15 +82,6 @@ router.post("/dog", async (req, res) => {
   dogCreated.addTemperament(temperamentDb)
   res.status(200).send("Perrito creado :D")
 });
-
-
-router.get("/dogs/height/:height", async (req, res) => {
-  let {height} = req.params
-    const dogsHeight = await getAllBreeds()
-
-  let getHeight = await dogsHeight.filter((el) => el.height == height)
-  getHeight.length ? res.status(200).send(getHeight) : res.status(404).send("Height not found :(")
-})
 
 
 module.exports = router;

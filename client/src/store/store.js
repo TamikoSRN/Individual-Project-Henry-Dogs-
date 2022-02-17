@@ -5,3 +5,4 @@ import rootReducer from "../reducer/reducer";
 
 export const store = createStore(
   rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+  

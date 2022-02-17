@@ -22,7 +22,7 @@ const getApiInfo = async () => {
 
 const getDBinfo = async () => {
     const dogInDB = await Dog.findAll({
-        include:{  //join
+        include:{ 
             model: Temperament,
             attributes: ["name"],
             through: {
@@ -47,7 +47,7 @@ const getAllBreeds = async () => {
 //  const getAllBreeds = async () => {
 //     let allInfo = await Promise.all([getApiInfo(), getDBinfo()]).then(response => response)
 //     return allInfo
-// } 
+// }
 
 module.exports = {
     getAllBreeds,

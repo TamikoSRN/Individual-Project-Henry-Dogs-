@@ -10,7 +10,7 @@ export default function Pagination ({dogsPerPage, allDogs, pagination, prevPage,
     return(
         <nav>
             <ul className="Pagination__ul">
-                { pageNumbers && pageNumbers.map(number => (
+                { pageNumbers?.map(number => (
                     <button onClick={() => pagination(number)} className="Pagination__Button">{number}</button>
                     ))}
             </ul>

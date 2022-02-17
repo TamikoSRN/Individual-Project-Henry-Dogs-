@@ -53,7 +53,7 @@ export default function DogCreate(){
     const temperament = useSelector((state) => state.temperaments)
     const [errors, setErrors] = useState ({})
 
-    
+
     const [input, setInput] = useState({
         name: "",
         minimHeight: "", 
@@ -75,7 +75,7 @@ export default function DogCreate(){
     function handleSelect(e){
         setInput({
             ...input,
-            temperament: [...input.temperament, e.target.value]
+            temperament : [...input.temperament, e.target.value]
         })
     }
     const navigate = useNavigate()

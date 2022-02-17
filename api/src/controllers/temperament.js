@@ -15,17 +15,15 @@ const getTemperament = async () => {
           return obj.temperament;
         }
       }).join().split(",");
-    // Mapeo todos los temperamentos de los perros de la api a un nuevo array.
+    // Mapeo todos los temperamentos de los perros de la api a un nuevo array, y convierto el array a strings.
 
     let temps = []; 
-    //Creo un array vacio donde van a estar todos los temps despues de "filtrarlos"
 
     dogTemperament.map((temp) => {
       if (!temps.includes(temp.trim()) && temp) {
         temps.push(temp.trim());
       }
     }); 
-    //Pusheo los temperamentos sin los espacios y sin repetir, cosa que sean los no repetidos los que queden
 
     temps.map(async (temp) => {
       await Temperament.findOrCreate({
@@ -34,7 +32,6 @@ const getTemperament = async () => {
         },
       });
     }); 
-    //Aca creo cada temperamento en la tabla una vez abra la lista.
   }
 
 module.exports = {
