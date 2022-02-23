@@ -5,15 +5,15 @@ const { Dog, Temperament } = require('../db');
 const getApiInfo = async () => {
     const api = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
 
-    const dogInfo = await api.data.map( e => {
+    const dogInfo = await api.data.map(el => {
         return{
-            id: e.id,
-            name: e.name,
-            height: e.height.metric,
-            weight: e.weight.metric,
-            lifeSpan: e.life_span,
-            image: e.image.url,
-            temperament: e.temperament
+            id: el.id,
+            name: el.name,
+            height: el.height.metric,
+            weight: el.weight.metric,
+            lifeSpan: el.life_span,
+            image: el.image.url,
+            temperament: el.temperament
         }
     })
 
@@ -51,4 +51,5 @@ const getAllBreeds = async () => {
 
 module.exports = {
     getAllBreeds,
+    getApiInfo
 }

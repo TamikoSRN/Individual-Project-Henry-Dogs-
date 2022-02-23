@@ -2,6 +2,7 @@ require("dotenv").config();
 const { Router } = require("express");
 const { Dog, Temperament } = require("../db");
 const { getAllBreeds } = require("../controllers/dogs");
+const { getTemperament } = require("../controllers/temperament");
 
 const router = Router();
 
@@ -39,6 +40,7 @@ router.get("/dogs/:id", async (req, res) => {
 
 
 router.get("/temperament", async (req, res) => {
+    const dogTemperaments = await getTemperament();
 
     const allTemperaments = await Temperament.findAll();
     const filteredTemperaments = await allTemperaments.map((obj) => obj.name);

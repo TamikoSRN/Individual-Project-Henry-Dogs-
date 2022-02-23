@@ -2,37 +2,34 @@ const { API_KEY } = process.env;
 const axios = require("axios");
 const { Temperament } = require("../db");
 
-
 const getTemperament = async () => {
+  let api = await axios.get(
+    `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
+  );
 
-
-    let api = await axios.get(
-      `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
-    );
-
-    let dogTemperament = await api.data.map((obj) => {
-        if (obj.temperament) {
-          return obj.temperament;
-        }
-      }).join().split(",");
-    // Mapeo todos los temperamentos de los perros de la api a un nuevo array, y convierto el array a strings.
-
-    let temps = []; 
-
-    dogTemperament.map((temp) => {
-      if (!temps.includes(temp.trim()) && temp) {
-        temps.push(temp.trim());
+  let dogTemperament = await api.data
+    .map((temp) => {
+      if (temp.temperament) {
+        return temp.temperament;
       }
-    }); 
+    })
+    .join()
+    .split(",");
 
-    temps.map(async (temp) => {
-      await Temperament.findOrCreate({
-        where: { 
-          name: temp
-        },
-      });
-    }); 
-  }
+  let temps = [];
+
+  dogTemperament.map((c) => {
+    if (!temps.includes(c.trim()) && c) {
+      temps.push(c.trim());
+    }
+  });
+
+  temps.map(async (c) => {
+    await Temperament.findOrCreate({
+      where: { name: c },
+    });
+  });
+};
 
 module.exports = {
   getTemperament,

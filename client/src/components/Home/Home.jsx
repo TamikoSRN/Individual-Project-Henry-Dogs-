@@ -106,7 +106,7 @@ export default function Home() {
 
 <div className="lists">
           <select className="listAlpha" onChange={e => handleSort(e)}>
-            <option hidden="all">A-Z</option>
+            <option hidden="all">Default Order</option>
             <option value="Asc"> A-Z </option>
             <option value="Desc"> Z-A </option>
           </select>
