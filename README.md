@@ -9,8 +9,16 @@ This project consisted in the development of a SPA (Single Page Application), wh
 
 ##Technologies implemented:
 
-Front-End:
-React | React-Router-Dom | Redux | NodeJS - ExpressJS | Sequelize (PostgreSQL) | CSS pure |
+###Front-End:
+React | React-Router-Dom | Redux |
+
+###Back-End:
+NodeJS - ExpressJS |
+
+###Data Base:
+Sequelize (PostgreSQL) | CSS pure |
+
+
 
 ##How to run the project!
 
