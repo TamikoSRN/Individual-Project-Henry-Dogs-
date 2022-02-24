@@ -2,11 +2,48 @@
     <img src='https://static.wixstatic.com/media/85087f_0d84cbeaeb824fca8f7ff18d7c9eaafd~mv2.png/v1/fill/w_160,h_30,al_c,q_85,usm_0.66_1.00_0.01/Logo_completo_Color_1PNG.webp' </img>
 </p>
 
-# Individual Project - Henry Dogs
+#Individual Project - Henry Dogs
 
-<p align="left">
-  <img height="200" src="./dog.png" />
-</p>
+Welcome to my biggest project up to date!
+This project consisted in the development of a SPA (Single Page Application), which makes use of an API data (The Dog API), and then part of the information it's extracted and stored in a Data Base, so it can be used later at convenience.
+
+##Technologies implemented:
+
+Front-End:
+React | React-Router-Dom | Redux | NodeJS - ExpressJS | Sequelize (PostgreSQL) | CSS pure |
+
+##How to run the project!
+
+In order to make this project works, you must follow a few steps:
+
+Open the the API folder in your console and run the following commands:
+
+To install all the dependencies of the project (you won't be able to open it without this):
+
+###npm install
+To start running the page in your browser:
+
+###npm start
+Open http://localhost:3000 to view it in your browser.
+
+In your localhost:3000, open the following route: "http://localhost:3000/temperament to charge the temperaments inside your database (which its tables were already created in this project), now the page should be able to access to all the temperaments (It's not mandatory, but it's required to access to ALL the functionalities, like the filter by temperaments or the creation of a dog)
+
+---
+
+Open the the PUBLIC folder in your console and run the following commands:
+
+###npm install
+To start running the page in your browser:
+
+###npm start
+Open http://localhost:3001 to view it in your browser.
+
+
+The page will reload when you make changes.
+You may also see any lint errors in the console.
+
+
+
 
 ## Objetivos del Proyecto
 
