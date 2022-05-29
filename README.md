@@ -4,7 +4,7 @@
 
 # Individual Project - Henry Dogs
 
-Welcome to my biggest project up to date!
+Welcome to my individual project from the Soy Henry bootcamp!
 This project consisted in the development of a SPA (Single Page Application), which makes use of an API data (The Dog API), and then part of the information it's extracted and stored in a Data Base, so it can be used later at convenience.
 
 ## Technologies implemented:
